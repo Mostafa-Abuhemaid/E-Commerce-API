@@ -5277,11 +5277,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\E-Commerce Project\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "G:\\E-Commerce Project\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+      "projectPath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\WebApplication1.csproj",
       "packagesPath": "C:\\Users\\CS\\.nuget\\packages\\",
-      "outputPath": "G:\\E-Commerce Project\\WebApplication1\\WebApplication1\\obj\\",
+      "outputPath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5302,14 +5302,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "G:\\E-Commerce Project\\WebApplication1\\E-Commerce.Core\\E-Commerce.Core.csproj": {
-              "projectPath": "G:\\E-Commerce Project\\WebApplication1\\E-Commerce.Core\\E-Commerce.Core.csproj"
+            "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Core\\E-Commerce.Core.csproj": {
+              "projectPath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Core\\E-Commerce.Core.csproj"
             },
-            "G:\\E-Commerce Project\\WebApplication1\\E-Commerce.Service\\E-Commerce.Service.csproj": {
-              "projectPath": "G:\\E-Commerce Project\\WebApplication1\\E-Commerce.Service\\E-Commerce.Service.csproj"
+            "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Service\\E-Commerce.Service.csproj": {
+              "projectPath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Service\\E-Commerce.Service.csproj"
             },
-            "G:\\E-Commerce Project\\WebApplication1\\ECommerce.Repository\\ECommerce.Repository.csproj": {
-              "projectPath": "G:\\E-Commerce Project\\WebApplication1\\ECommerce.Repository\\ECommerce.Repository.csproj"
+            "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\ECommerce.Repository\\ECommerce.Repository.csproj": {
+              "projectPath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\ECommerce.Repository\\ECommerce.Repository.csproj"
             }
           }
         }

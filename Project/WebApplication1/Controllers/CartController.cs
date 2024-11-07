@@ -1,5 +1,7 @@
 ﻿using E_Commerce.Core.DTO;
+using E_Commerce.Core.Enums;
 using E_Commerce.Core.Repository;
+using ECommerce.Repository.Helper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -33,10 +35,10 @@ namespace WebApplication1.Controllers
 
         [Authorize]
         [HttpPost("add")]
-        public async Task<IActionResult> AddToCart([FromBody] SendCartItemDTO SendCartItemDTO)
+        public async Task<IActionResult> AddToCart([FromBody] SendCartItemDTO SendCartItemDTO,Size s)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            await _cartService.AddToCartAsync(SendCartItemDTO, userId);
+            await _cartService.AddToCartAsync(SendCartItemDTO, userId,s);
             return Ok("done");
         }
 

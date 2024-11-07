@@ -1,5 +1,6 @@
 ﻿using E_Commerce.Core.DTO;
 using E_Commerce.Core.Entities;
+using E_Commerce.Core.Enums;
 using E_Commerce.Core.Repository;
 using ECommerce.Repository.Data;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,7 +55,7 @@ namespace ECommerce.Repository.Implementation
 
         }
 
-        public async Task AddToCartAsync(SendCartItemDTO sendCartItemDTO, string userId)
+        public async Task AddToCartAsync(SendCartItemDTO sendCartItemDTO, string userId, Size size)
         {
             var cart = await _context.Carts.FirstOrDefaultAsync(c => c.UserAppId == userId)
                        ?? new Cart { UserAppId = userId };
@@ -76,7 +78,8 @@ namespace ECommerce.Repository.Implementation
                 {
                     ProductId = sendCartItemDTO.ProductId,
                     Quantity = sendCartItemDTO.Quantity,
-                    CartId = cart.Id
+                    CartId = cart.Id,
+                     size = size
                 };
                 await _context.CartItems.AddAsync(cartItem); 
             }

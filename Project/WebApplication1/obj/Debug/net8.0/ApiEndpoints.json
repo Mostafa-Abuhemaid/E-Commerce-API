@@ -59,6 +59,11 @@
         "Name": "SendCartItemDTO",
         "Type": "E_Commerce.Core.DTO.SendCartItemDTO",
         "IsRequired": true
+      },
+      {
+        "Name": "s",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

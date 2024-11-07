@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dJUuHxyXLfl+IQM+ssLJCF6PYp7PrqvIedDsh8CP0jtNRuHu8XO1eRY4YHg0YLqiGBk29x9P/OgLLIjz6V/h3g==",
+  "dgSpecHash": "nqry4FnddJdnUC9bofftfKTuR9TlnrCpKDRVpB0xN16ACvpqcXbNdBASFxvRyRZj3Co75dYTPKOBiYCY3unuUQ==",
   "success": true,
-  "projectFilePath": "G:\\E-Commerce Project\\WebApplication1\\ECommerce.Repository\\ECommerce.Repository.csproj",
+  "projectFilePath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\ECommerce.Repository\\ECommerce.Repository.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CS\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\CS\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

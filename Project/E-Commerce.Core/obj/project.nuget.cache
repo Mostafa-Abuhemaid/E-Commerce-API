@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OwxAIze8N5ka6zTK/psXqcZZ0Lz80FCmnaqNQcRedEtVQJsrmqSbosS7MW20ZlLAphS31pVmc9IrzqnBkyCr/g==",
+  "dgSpecHash": "P4CzyIjZbrMEnYtwPKW79g1VI0exowJBsbSQnX1IXShXdB0CTkT+lALvv+KKHm9bWymE1bhaZg1xrEld+ygGxw==",
   "success": true,
-  "projectFilePath": "G:\\E-Commerce Project\\WebApplication1\\E-Commerce.Core\\E-Commerce.Core.csproj",
+  "projectFilePath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Core\\E-Commerce.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CS\\.nuget\\packages\\dotnetopenauth.core\\4.3.4.13329\\dotnetopenauth.core.4.3.4.13329.nupkg.sha512",
     "C:\\Users\\CS\\.nuget\\packages\\dotnetopenauth.openid.core\\4.3.4.13329\\dotnetopenauth.openid.core.4.3.4.13329.nupkg.sha512",

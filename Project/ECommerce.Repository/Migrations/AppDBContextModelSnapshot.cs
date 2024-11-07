@@ -52,6 +52,9 @@ namespace ECommerce.Repository.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<int>("size")
+                        .HasColumnType("int");
+
                     b.HasKey("CartId", "ProductId");
 
                     b.HasIndex("ProductId");

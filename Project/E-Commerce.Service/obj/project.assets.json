@@ -4966,11 +4966,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\E-Commerce Project\\WebApplication1\\E-Commerce.Service\\E-Commerce.Service.csproj",
+      "projectUniqueName": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Service\\E-Commerce.Service.csproj",
       "projectName": "E-Commerce.Service",
-      "projectPath": "G:\\E-Commerce Project\\WebApplication1\\E-Commerce.Service\\E-Commerce.Service.csproj",
+      "projectPath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Service\\E-Commerce.Service.csproj",
       "packagesPath": "C:\\Users\\CS\\.nuget\\packages\\",
-      "outputPath": "G:\\E-Commerce Project\\WebApplication1\\E-Commerce.Service\\obj\\",
+      "outputPath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4991,8 +4991,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "G:\\E-Commerce Project\\WebApplication1\\E-Commerce.Core\\E-Commerce.Core.csproj": {
-              "projectPath": "G:\\E-Commerce Project\\WebApplication1\\E-Commerce.Core\\E-Commerce.Core.csproj"
+            "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Core\\E-Commerce.Core.csproj": {
+              "projectPath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Core\\E-Commerce.Core.csproj"
             }
           }
         }

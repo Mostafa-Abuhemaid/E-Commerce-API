@@ -46,7 +46,7 @@ namespace WebApplication1.Controllers
                 productdto[i].ImagePath = $"{_configuration["BaseURL"]}/Images/Product/{productdto[i].ImagePath}";
 
             }
-            return Ok(products);
+            return Ok(productdto);
 
 
 		}

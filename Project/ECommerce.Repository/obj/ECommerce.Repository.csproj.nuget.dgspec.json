@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\E-Commerce Project\\WebApplication1\\ECommerce.Repository\\ECommerce.Repository.csproj": {}
+    "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\ECommerce.Repository\\ECommerce.Repository.csproj": {}
   },
   "projects": {
-    "G:\\E-Commerce Project\\WebApplication1\\E-Commerce.Core\\E-Commerce.Core.csproj": {
+    "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Core\\E-Commerce.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\E-Commerce Project\\WebApplication1\\E-Commerce.Core\\E-Commerce.Core.csproj",
+        "projectUniqueName": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Core\\E-Commerce.Core.csproj",
         "projectName": "E-Commerce.Core",
-        "projectPath": "G:\\E-Commerce Project\\WebApplication1\\E-Commerce.Core\\E-Commerce.Core.csproj",
+        "projectPath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Core\\E-Commerce.Core.csproj",
         "packagesPath": "C:\\Users\\CS\\.nuget\\packages\\",
-        "outputPath": "G:\\E-Commerce Project\\WebApplication1\\E-Commerce.Core\\obj\\",
+        "outputPath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -82,14 +82,14 @@
         }
       }
     },
-    "G:\\E-Commerce Project\\WebApplication1\\ECommerce.Repository\\ECommerce.Repository.csproj": {
+    "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\ECommerce.Repository\\ECommerce.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\E-Commerce Project\\WebApplication1\\ECommerce.Repository\\ECommerce.Repository.csproj",
+        "projectUniqueName": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\ECommerce.Repository\\ECommerce.Repository.csproj",
         "projectName": "ECommerce.Repository",
-        "projectPath": "G:\\E-Commerce Project\\WebApplication1\\ECommerce.Repository\\ECommerce.Repository.csproj",
+        "projectPath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\ECommerce.Repository\\ECommerce.Repository.csproj",
         "packagesPath": "C:\\Users\\CS\\.nuget\\packages\\",
-        "outputPath": "G:\\E-Commerce Project\\WebApplication1\\ECommerce.Repository\\obj\\",
+        "outputPath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\ECommerce.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -110,8 +110,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "G:\\E-Commerce Project\\WebApplication1\\E-Commerce.Core\\E-Commerce.Core.csproj": {
-                "projectPath": "G:\\E-Commerce Project\\WebApplication1\\E-Commerce.Core\\E-Commerce.Core.csproj"
+              "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Core\\E-Commerce.Core.csproj": {
+                "projectPath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Core\\E-Commerce.Core.csproj"
               }
             }
           }
