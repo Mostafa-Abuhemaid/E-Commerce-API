@@ -1,0 +1,17 @@
+G:\E-Commerce Project\WebApplication1\ECommerce.Repository\bin\Debug\net8.0\ECommerce.Repository.deps.json
+G:\E-Commerce Project\WebApplication1\ECommerce.Repository\bin\Debug\net8.0\ECommerce.Repository.runtimeconfig.json
+G:\E-Commerce Project\WebApplication1\ECommerce.Repository\bin\Debug\net8.0\ECommerce.Repository.dll
+G:\E-Commerce Project\WebApplication1\ECommerce.Repository\bin\Debug\net8.0\ECommerce.Repository.pdb
+G:\E-Commerce Project\WebApplication1\ECommerce.Repository\bin\Debug\net8.0\E-Commerce.Core.dll
+G:\E-Commerce Project\WebApplication1\ECommerce.Repository\bin\Debug\net8.0\E-Commerce.Core.pdb
+G:\E-Commerce Project\WebApplication1\ECommerce.Repository\obj\Debug\net8.0\ECommerce.Repository.csproj.AssemblyReference.cache
+G:\E-Commerce Project\WebApplication1\ECommerce.Repository\obj\Debug\net8.0\ECommerce.Repository.GeneratedMSBuildEditorConfig.editorconfig
+G:\E-Commerce Project\WebApplication1\ECommerce.Repository\obj\Debug\net8.0\ECommerce.Repository.AssemblyInfoInputs.cache
+G:\E-Commerce Project\WebApplication1\ECommerce.Repository\obj\Debug\net8.0\ECommerce.Repository.AssemblyInfo.cs
+G:\E-Commerce Project\WebApplication1\ECommerce.Repository\obj\Debug\net8.0\ECommerce.Repository.csproj.CoreCompileInputs.cache
+G:\E-Commerce Project\WebApplication1\ECommerce.Repository\obj\Debug\net8.0\ECommerc.A7A3BF9F.Up2Date
+G:\E-Commerce Project\WebApplication1\ECommerce.Repository\obj\Debug\net8.0\ECommerce.Repository.dll
+G:\E-Commerce Project\WebApplication1\ECommerce.Repository\obj\Debug\net8.0\refint\ECommerce.Repository.dll
+G:\E-Commerce Project\WebApplication1\ECommerce.Repository\obj\Debug\net8.0\ECommerce.Repository.pdb
+G:\E-Commerce Project\WebApplication1\ECommerce.Repository\obj\Debug\net8.0\ECommerce.Repository.genruntimeconfig.cache
+G:\E-Commerce Project\WebApplication1\ECommerce.Repository\obj\Debug\net8.0\ref\ECommerce.Repository.dll

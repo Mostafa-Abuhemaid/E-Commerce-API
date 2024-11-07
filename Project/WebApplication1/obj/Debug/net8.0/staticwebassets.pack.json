@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "G:\\E-Commerce Project\\WebApplication1\\WebApplication1\\wwwroot\\Images\\Category\\52e98f8a-4fc3-4562-8299-27657152d401images.jpeg",
+      "PackagePath": "staticwebassets\\Images\\Category\\52e98f8a-4fc3-4562-8299-27657152d401images.jpeg"
+    },
+    {
+      "Id": "G:\\E-Commerce Project\\WebApplication1\\WebApplication1\\wwwroot\\Images\\Category\\b551a370-d7fc-4d21-ac53-7bec5ec59273Nexus43.webp",
+      "PackagePath": "staticwebassets\\Images\\Category\\b551a370-d7fc-4d21-ac53-7bec5ec59273Nexus43.webp"
+    },
+    {
+      "Id": "G:\\E-Commerce Project\\WebApplication1\\WebApplication1\\wwwroot\\Images\\Offers\\ea80a2c2-b842-44bf-ad81-c4fb0a7d4ebeimages.jpeg",
+      "PackagePath": "staticwebassets\\Images\\Offers\\ea80a2c2-b842-44bf-ad81-c4fb0a7d4ebeimages.jpeg"
+    },
+    {
+      "Id": "G:\\E-Commerce Project\\WebApplication1\\WebApplication1\\wwwroot\\Images\\Product\\1253a585-cf71-42e7-a42c-30256e8dde25Nexus43.webp",
+      "PackagePath": "staticwebassets\\Images\\Product\\1253a585-cf71-42e7-a42c-30256e8dde25Nexus43.webp"
+    },
+    {
+      "Id": "G:\\E-Commerce Project\\WebApplication1\\WebApplication1\\wwwroot\\Images\\Product\\63ae4cee-6319-4abd-b693-1ed53ccc95f0613Ay8pU9zL._AC_SX522_.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\63ae4cee-6319-4abd-b693-1ed53ccc95f0613Ay8pU9zL._AC_SX522_.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.WebApplication1.props",
+      "PackagePath": "build\\WebApplication1.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.WebApplication1.props",
+      "PackagePath": "buildMultiTargeting\\WebApplication1.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.WebApplication1.props",
+      "PackagePath": "buildTransitive\\WebApplication1.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

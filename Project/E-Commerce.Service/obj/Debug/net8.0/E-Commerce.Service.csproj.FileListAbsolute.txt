@@ -1,0 +1,15 @@
+G:\E-Commerce Project\WebApplication1\E-Commerce.Service\obj\Debug\net8.0\E-Commerce.Service.csproj.AssemblyReference.cache
+G:\E-Commerce Project\WebApplication1\E-Commerce.Service\obj\Debug\net8.0\E-Commerce.Service.GeneratedMSBuildEditorConfig.editorconfig
+G:\E-Commerce Project\WebApplication1\E-Commerce.Service\obj\Debug\net8.0\E-Commerce.Service.AssemblyInfoInputs.cache
+G:\E-Commerce Project\WebApplication1\E-Commerce.Service\obj\Debug\net8.0\E-Commerce.Service.AssemblyInfo.cs
+G:\E-Commerce Project\WebApplication1\E-Commerce.Service\obj\Debug\net8.0\E-Commerce.Service.csproj.CoreCompileInputs.cache
+G:\E-Commerce Project\WebApplication1\E-Commerce.Service\bin\Debug\net8.0\E-Commerce.Service.deps.json
+G:\E-Commerce Project\WebApplication1\E-Commerce.Service\bin\Debug\net8.0\E-Commerce.Service.dll
+G:\E-Commerce Project\WebApplication1\E-Commerce.Service\bin\Debug\net8.0\E-Commerce.Service.pdb
+G:\E-Commerce Project\WebApplication1\E-Commerce.Service\bin\Debug\net8.0\E-Commerce.Core.dll
+G:\E-Commerce Project\WebApplication1\E-Commerce.Service\bin\Debug\net8.0\E-Commerce.Core.pdb
+G:\E-Commerce Project\WebApplication1\E-Commerce.Service\obj\Debug\net8.0\E-Commer.D523DE1F.Up2Date
+G:\E-Commerce Project\WebApplication1\E-Commerce.Service\obj\Debug\net8.0\E-Commerce.Service.dll
+G:\E-Commerce Project\WebApplication1\E-Commerce.Service\obj\Debug\net8.0\refint\E-Commerce.Service.dll
+G:\E-Commerce Project\WebApplication1\E-Commerce.Service\obj\Debug\net8.0\E-Commerce.Service.pdb
+G:\E-Commerce Project\WebApplication1\E-Commerce.Service\obj\Debug\net8.0\ref\E-Commerce.Service.dll
