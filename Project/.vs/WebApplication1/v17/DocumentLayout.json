@@ -27,12 +27,12 @@
       "RelativeMoniker": "D:0:0:{5B364585-F465-4A68-B06A-2458560E9F52}|E-Commerce.Core\\E-Commerce.Core.csproj|solutionrelative:e-commerce.core\\dto\\sendcartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\ECommerce.Repository\\Migrations\\20241107194324_Add Size to CartItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ECommerce.Repository\\Migrations\\20241107194324_Add Size to CartItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2967BA6F-21AA-4AFD-BA4D-A702FE37D73C}|ECommerce.Repository\\ECommerce.Repository.csproj|g:\\e-commerce project\\git\\e-commerce-api\\project\\ecommerce.repository\\helper\\files.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2967BA6F-21AA-4AFD-BA4D-A702FE37D73C}|ECommerce.Repository\\ECommerce.Repository.csproj|solutionrelative:ecommerce.repository\\helper\\files.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2967BA6F-21AA-4AFD-BA4D-A702FE37D73C}|ECommerce.Repository\\ECommerce.Repository.csproj|g:\\e-commerce project\\git\\e-commerce-api\\project\\ecommerce.repository\\migrations\\20241107194324_add size to cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2967BA6F-21AA-4AFD-BA4D-A702FE37D73C}|ECommerce.Repository\\ECommerce.Repository.csproj|solutionrelative:ecommerce.repository\\migrations\\20241107194324_add size to cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -68,7 +68,7 @@
               "RelativeDocumentMoniker": "ECommerce.Repository\\Implementation\\CartRepository.cs",
               "ToolTip": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\ECommerce.Repository\\Implementation\\CartRepository.cs",
               "RelativeToolTip": "ECommerce.Repository\\Implementation\\CartRepository.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAQwEYAAAAkAAAA",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAQwDkAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-07T19:01:45.756Z",
               "EditorCaption": ""
@@ -83,12 +83,11 @@
               "RelativeToolTip": "E-Commerce.Core\\DTO\\SendCartItemDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T19:55:16.17Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T19:55:16.17Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "20241107194324_Add Size to CartItem.cs",
               "DocumentMoniker": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\ECommerce.Repository\\Migrations\\20241107194324_Add Size to CartItem.cs",
               "RelativeDocumentMoniker": "ECommerce.Repository\\Migrations\\20241107194324_Add Size to CartItem.cs",
@@ -96,8 +95,7 @@
               "RelativeToolTip": "ECommerce.Repository\\Migrations\\20241107194324_Add Size to CartItem.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T19:43:25.035Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T19:43:25.035Z"
             },
             {
               "$type": "Document",
@@ -109,12 +107,11 @@
               "RelativeToolTip": "E-Commerce.Core\\Enums\\Size.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T19:42:19.837Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T19:42:19.837Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "Files.cs",
               "DocumentMoniker": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\ECommerce.Repository\\Helper\\Files.cs",
               "RelativeDocumentMoniker": "ECommerce.Repository\\Helper\\Files.cs",
@@ -122,8 +119,7 @@
               "RelativeToolTip": "ECommerce.Repository\\Helper\\Files.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T19:41:15.031Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T19:41:15.031Z"
             },
             {
               "$type": "Document",
@@ -135,8 +131,7 @@
               "RelativeToolTip": "E-Commerce.Core\\Repository\\ICartService.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T19:00:57.387Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T19:00:57.387Z"
             },
             {
               "$type": "Document",
@@ -148,8 +143,7 @@
               "RelativeToolTip": "E-Commerce.Core\\Entities\\CartItem.cs",
               "ViewState": "AQIAAA0AAAAAAAAAAAAiwBAAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T19:00:06.766Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T19:00:06.766Z"
             },
             {
               "$type": "Document",
@@ -161,8 +155,7 @@
               "RelativeToolTip": "WebApplication1\\Controllers\\CartController.cs",
               "ViewState": "AQIAACIAAAAAAAAAAAAAACoAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T18:59:51.082Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T18:59:51.082Z"
             }
           ]
         }
