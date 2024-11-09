@@ -1,4 +1,5 @@
-﻿using E_Commerce.Core.Entities;
+﻿using E_Commerce.Core.DTO.FavoriteDTO;
+using E_Commerce.Core.Entities;
 using E_Commerce.Core.Repository;
 using ECommerce.Repository.Data;
 using Microsoft.AspNetCore.Authorization;
@@ -15,10 +16,12 @@ namespace WebApplication1.Controllers
     public class FavoriteController : ControllerBase
     {
         private readonly IFavoriteService _favoriteService;
+        private readonly IConfiguration _configuration;
 
-        public FavoriteController(IFavoriteService favoriteService)
+        public FavoriteController(IFavoriteService favoriteService, IConfiguration configuration)
         {
             _favoriteService = favoriteService;
+            _configuration = configuration;
         }
 
         [HttpPost("{productId}")]
@@ -55,7 +58,23 @@ namespace WebApplication1.Controllers
             if (userId == null) return Unauthorized();
 
             var favorites = await _favoriteService.GetFavorites(userId);
-            return Ok(favorites);
+            var FavDTO = favorites.Select(f => new FavoriteDTO
+
+            {
+                Name = f.Name,
+                Price = f.Price,
+                ImagePath = f.Image,
+                SubCategory = f.SubCategory,
+                CategoryId = f.CategoryId
+            }
+            ).ToList();
+
+          for(int i=0;i< FavDTO.Count();i++)
+            {
+                FavDTO[i].ImagePath = $"{_configuration["BaseURL"]}/Images/Product/{FavDTO[i].ImagePath}";
+            }
+
+            return Ok(FavDTO);
         }
     }
 
