@@ -1,4 +1,5 @@
 ﻿using E_Commerce.Core.DTO;
+using E_Commerce.Core.DTO.AccountDTO;
 using E_Commerce.Core.Identity;
 using E_Commerce.Core.Service;
 using Microsoft.AspNetCore.Authentication;

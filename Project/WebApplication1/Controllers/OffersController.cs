@@ -1,11 +1,11 @@
 ﻿using E_Commerce.Core.DTO;
+using E_Commerce.Core.DTO.OfferDTO;
 using E_Commerce.Core.Entities;
 using ECommerce.Repository.Data;
 using ECommerce.Repository.Helper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using WebApplication1.DTO;
 
 namespace WebApplication1.Controllers
 {

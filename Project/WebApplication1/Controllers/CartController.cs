@@ -1,4 +1,4 @@
-﻿using E_Commerce.Core.DTO;
+﻿using E_Commerce.Core.DTO.CartItemDTO;
 using E_Commerce.Core.Enums;
 using E_Commerce.Core.Repository;
 using ECommerce.Repository.Helper;

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace E_Commerce.Core.DTO
+namespace E_Commerce.Core.DTO.OfferDTO
 {
     public class GetOffersDTO
     {

@@ -1,4 +1,5 @@
-﻿using E_Commerce.Core.Entities;
+﻿using E_Commerce.Core.DTO.ProductDTO;
+using E_Commerce.Core.Entities;
 using ECommerce.Repository.Data;
 using ECommerce.Repository.Helper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -6,12 +7,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using WebApplication1.DTO;
+
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace WebApplication1.Controllers
 {
-	[Route("api/[controller]")]
+    [Route("api/[controller]")]
 	[ApiController]
 	public class ProductController : ControllerBase
 	{

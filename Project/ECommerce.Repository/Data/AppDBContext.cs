@@ -23,6 +23,7 @@ namespace ECommerce.Repository.Data
 		public DbSet<Special_Offers> Special_Offers { get; set;}
 		public DbSet<Cart> Carts { get; set; }
 		public DbSet<CartItem> CartItems { get; set; }
+        public DbSet<Favorite> Favorites { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

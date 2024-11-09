@@ -1,4 +1,6 @@
 ﻿using E_Commerce.Core.DTO;
+using E_Commerce.Core.DTO.CategoryDTO;
+using E_Commerce.Core.DTO.ProductDTO;
 using E_Commerce.Core.Entities;
 using E_Commerce.Core.Repository;
 using ECommerce.Repository.Data;
@@ -6,11 +8,10 @@ using ECommerce.Repository.Helper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using WebApplication1.DTO;
 
 namespace WebApplication1.Controllers
 {
-	[Route("api/[controller]")]
+    [Route("api/[controller]")]
 	[ApiController]
 	public class CategoryController : ControllerBase
 	{

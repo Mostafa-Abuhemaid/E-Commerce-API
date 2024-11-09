@@ -1,4 +1,5 @@
-﻿using E_Commerce.Core.DTO;
+﻿using E_Commerce.Core.DTO.CartDTO;
+using E_Commerce.Core.DTO.CartItemDTO;
 using E_Commerce.Core.Entities;
 using E_Commerce.Core.Enums;
 using E_Commerce.Core.Repository;
@@ -12,12 +13,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebApplication1.DTO;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace ECommerce.Repository.Implementation
 {
- public class CartRepository : ICartService
+    public class CartRepository : ICartService
     {
 
 

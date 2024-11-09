@@ -25,7 +25,7 @@
     "Parameters": [
       {
         "Name": "loginDto",
-        "Type": "E_Commerce.Core.DTO.LoginDTO",
+        "Type": "E_Commerce.Core.DTO.AccountDTO.LoginDTO",
         "IsRequired": true
       }
     ],
@@ -41,7 +41,7 @@
     "Parameters": [
       {
         "Name": "registerDTO",
-        "Type": "E_Commerce.Core.DTO.RegisterDTO",
+        "Type": "E_Commerce.Core.DTO.AccountDTO.RegisterDTO",
         "IsRequired": true
       }
     ],
@@ -57,7 +57,7 @@
     "Parameters": [
       {
         "Name": "SendCartItemDTO",
-        "Type": "E_Commerce.Core.DTO.SendCartItemDTO",
+        "Type": "E_Commerce.Core.DTO.CartItemDTO.SendCartItemDTO",
         "IsRequired": true
       },
       {
@@ -216,6 +216,48 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebApplication1.Controllers.FavoriteController",
+    "Method": "AddFavorite",
+    "RelativePath": "api/Favorite/{productId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.FavoriteController",
+    "Method": "RemoveFavorite",
+    "RelativePath": "api/Favorite/{productId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.FavoriteController",
+    "Method": "GetFavorites",
+    "RelativePath": "api/Favorite/list",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebApplication1.Controllers.OffersController",
     "Method": "CreateOferrAsync",
     "RelativePath": "api/Offers",
@@ -271,22 +313,6 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "WebApplication1.Controllers.OrderController",
-    "Method": "GetOrderInfo",
-    "RelativePath": "api/Order",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "orderDTO",
-        "Type": "E_Commerce.Core.DTO.OrderDTO",
-        "IsRequired": true
-      }
-    ],
     "ReturnTypes": []
   },
   {

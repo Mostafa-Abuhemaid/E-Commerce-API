@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication1.DTO
+namespace E_Commerce.Core.DTO.ProductDTO
 {
     public class SendProductDTO
     {
