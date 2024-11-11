@@ -67,8 +67,7 @@
               "ViewState": "AQIAAAYAAABgZmZmZmYkwA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-09T12:18:33.216Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -81,8 +80,7 @@
               "ViewState": "AQIAADQAAACANDMzMzMDwEkAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-08T16:29:47.956Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -95,47 +93,7 @@
               "ViewState": "AQIAAAkAAAAAAAAAAAAAACMAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-08T21:56:50.62Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CategoryRepository.cs",
-              "DocumentMoniker": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\ECommerce.Repository\\Implementation\\CategoryRepository.cs",
-              "RelativeDocumentMoniker": "ECommerce.Repository\\Implementation\\CategoryRepository.cs",
-              "ToolTip": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\ECommerce.Repository\\Implementation\\CategoryRepository.cs",
-              "RelativeToolTip": "ECommerce.Repository\\Implementation\\CategoryRepository.cs",
-              "ViewState": "AQIAAA8AAADAmZmZmZkxwBIAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-09T17:45:07.389Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\UserController.cs",
-              "ToolTip": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\Controllers\\UserController.cs",
-              "RelativeToolTip": "WebApplication1\\Controllers\\UserController.cs",
-              "ViewState": "AQIAADcAAACAmZmZmZk5wB0AAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-09T14:22:25.18Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\appsettings.json",
-              "RelativeDocumentMoniker": "WebApplication1\\appsettings.json",
-              "ToolTip": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\appsettings.json",
-              "RelativeToolTip": "WebApplication1\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-09T14:22:24.207Z",
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -155,13 +113,49 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CategoryRepository.cs",
+              "DocumentMoniker": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\ECommerce.Repository\\Implementation\\CategoryRepository.cs",
+              "RelativeDocumentMoniker": "ECommerce.Repository\\Implementation\\CategoryRepository.cs",
+              "ToolTip": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\ECommerce.Repository\\Implementation\\CategoryRepository.cs",
+              "RelativeToolTip": "ECommerce.Repository\\Implementation\\CategoryRepository.cs",
+              "ViewState": "AQIAAA8AAADAmZmZmZkxwBIAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T17:45:07.389Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\UserController.cs",
+              "ToolTip": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\Controllers\\UserController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\UserController.cs",
+              "ViewState": "AQIAADcAAACAmZmZmZk5wB0AAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T14:22:25.18Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\appsettings.json",
+              "RelativeDocumentMoniker": "WebApplication1\\appsettings.json",
+              "ToolTip": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\appsettings.json",
+              "RelativeToolTip": "WebApplication1\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-09T14:22:24.207Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "CategoryController.cs",
               "DocumentMoniker": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Controllers\\CategoryController.cs",
               "ToolTip": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\Controllers\\CategoryController.cs",
               "RelativeToolTip": "WebApplication1\\Controllers\\CategoryController.cs",
-              "ViewState": "AQIAAGcAAAAAAAAAAAAcwEIAAAByAAAA",
+              "ViewState": "AQIAAGcAAAAAAAAAAAAcwHgAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-09T12:15:29.831Z",
               "EditorCaption": ""
@@ -176,8 +170,7 @@
               "RelativeToolTip": "WebApplication1\\Program.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAYwB4AAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T22:09:44.927Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T22:09:44.927Z"
             },
             {
               "$type": "Document",
@@ -189,8 +182,7 @@
               "RelativeToolTip": "E-Commerce.Core\\Repository\\IFavoriteService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T21:39:10.721Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T21:39:10.721Z"
             },
             {
               "$type": "Document",
