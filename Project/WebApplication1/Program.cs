@@ -1,3 +1,4 @@
+using E_Commerce.Core.Helper;
 using E_Commerce.Core.Identity;
 using E_Commerce.Core.Repository;
 using E_Commerce.Core.Service;
@@ -28,6 +29,7 @@ builder.Services.AddScoped<IProduct, ProductRepository>();
 builder.Services.AddScoped<ICategory, CategoryRepository>();
 builder.Services.AddScoped<ICartService, CartRepository>();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<IFavoriteService, FavoriteRepository>();
 
 builder.Services.AddAuthentication(options =>
@@ -61,7 +63,7 @@ var app = builder.Build();
 
         
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+//if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();
 	app.UseSwaggerUI();

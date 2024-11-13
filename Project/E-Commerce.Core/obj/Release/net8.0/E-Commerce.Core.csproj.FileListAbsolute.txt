@@ -1,0 +1,13 @@
+G:\E-Commerce Project\git\E-Commerce-API\Project\E-Commerce.Core\bin\Release\net8.0\E-Commerce.Core.deps.json
+G:\E-Commerce Project\git\E-Commerce-API\Project\E-Commerce.Core\bin\Release\net8.0\E-Commerce.Core.dll
+G:\E-Commerce Project\git\E-Commerce-API\Project\E-Commerce.Core\bin\Release\net8.0\E-Commerce.Core.pdb
+G:\E-Commerce Project\git\E-Commerce-API\Project\E-Commerce.Core\obj\Release\net8.0\E-Commerce.Core.csproj.AssemblyReference.cache
+G:\E-Commerce Project\git\E-Commerce-API\Project\E-Commerce.Core\obj\Release\net8.0\E-Commerce.Core.GeneratedMSBuildEditorConfig.editorconfig
+G:\E-Commerce Project\git\E-Commerce-API\Project\E-Commerce.Core\obj\Release\net8.0\E-Commerce.Core.AssemblyInfoInputs.cache
+G:\E-Commerce Project\git\E-Commerce-API\Project\E-Commerce.Core\obj\Release\net8.0\E-Commerce.Core.AssemblyInfo.cs
+G:\E-Commerce Project\git\E-Commerce-API\Project\E-Commerce.Core\obj\Release\net8.0\E-Commerce.Core.csproj.CoreCompileInputs.cache
+G:\E-Commerce Project\git\E-Commerce-API\Project\E-Commerce.Core\obj\Release\net8.0\E-Commerce.Core.sourcelink.json
+G:\E-Commerce Project\git\E-Commerce-API\Project\E-Commerce.Core\obj\Release\net8.0\E-Commerce.Core.dll
+G:\E-Commerce Project\git\E-Commerce-API\Project\E-Commerce.Core\obj\Release\net8.0\refint\E-Commerce.Core.dll
+G:\E-Commerce Project\git\E-Commerce-API\Project\E-Commerce.Core\obj\Release\net8.0\E-Commerce.Core.pdb
+G:\E-Commerce Project\git\E-Commerce-API\Project\E-Commerce.Core\obj\Release\net8.0\ref\E-Commerce.Core.dll

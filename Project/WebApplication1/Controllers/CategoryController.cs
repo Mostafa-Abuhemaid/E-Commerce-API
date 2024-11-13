@@ -32,12 +32,17 @@ namespace WebApplication1.Controllers
 
             var productdto = products.Select(p => new GetProductDTO
 			{
-
+                Id = p.Id,
 				Name = p.Name,
 				Description = p.Description,
 				Material = p.Material,
 				Price = p.Price,
-                ImagePath=p.Image
+                SubCategory = p.SubCategory,
+                ImagePath=p.Image,
+              
+               
+
+                
 
 
 			}
@@ -57,6 +62,7 @@ namespace WebApplication1.Controllers
             var Categories = _appContext.Categories.ToList();
             var CategoriesDTO = Categories.Select(c => new GetCategoryDTO
             {
+                Id= c.Id,
                Name=c.Name,
                imgURL=c.ImgeURL
             }

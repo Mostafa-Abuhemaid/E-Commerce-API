@@ -1,5 +1,7 @@
-﻿using E_Commerce.Core.DTO.ProductDTO;
+﻿using AutoMapper;
+using E_Commerce.Core.DTO.ProductDTO;
 using E_Commerce.Core.Entities;
+using E_Commerce.Core.Repository;
 using ECommerce.Repository.Data;
 using ECommerce.Repository.Helper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -18,13 +20,38 @@ namespace WebApplication1.Controllers
 	{
 		private readonly AppDBContext _appContext;
 		private readonly IConfiguration _configuration;
+		private readonly IMapper _mapper;
 
-		public ProductController(AppDBContext appContext,IConfiguration configuration)
-		{
-			_appContext = appContext;
-		     _configuration = configuration;
-		}
-		[HttpGet("{id}")]
+        public ProductController(AppDBContext appContext, IConfiguration configuration, IMapper mapper)
+        {
+            _appContext = appContext;
+            _configuration = configuration;
+            _mapper = mapper;
+        }
+
+        [HttpGet("GetAllProducts")]
+        public async Task<IActionResult> GetAllProducts()
+        {
+            var products = await _appContext.Products.ToListAsync();
+
+            if (products == null || products.Count == 0)
+            {
+                return NotFound("No products found.");
+            }
+
+			//var productDTOs = _mapper.Map<List<GetProductDTO>>(products);
+			for (int i = 0; i < products.Count(); i++)
+			{
+                products[i].Image = $"{_configuration["BaseURL"]}/Images/Product/{products[i].Image}";
+
+			}
+			return Ok(products);
+        }
+
+
+
+
+        [HttpGet("{id}")]
 		public async Task<IActionResult> getProductByIdAsync([FromRoute]int id)
 		{
 
@@ -35,6 +62,7 @@ namespace WebApplication1.Controllers
 				var Url = $"{_configuration["BaseURL"]}/Images/Product/{pro.Image}";
 				var productDto = new GetProductDTO
 				{
+					Id = pro.Id,
 					Name = pro.Name,
 					Price = pro.Price,
 					Material = pro.Material,

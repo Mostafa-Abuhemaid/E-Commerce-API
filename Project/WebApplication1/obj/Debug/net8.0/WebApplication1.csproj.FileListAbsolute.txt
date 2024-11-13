@@ -309,3 +309,5 @@ G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Debug\net8.
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Debug\net8.0\WebApplication1.pdb
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Debug\net8.0\WebApplication1.genruntimeconfig.cache
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Debug\net8.0\ref\WebApplication1.dll
+G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\bin\Debug\net8.0\AutoMapper.dll
+G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

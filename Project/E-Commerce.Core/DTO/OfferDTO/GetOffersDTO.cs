@@ -9,6 +9,7 @@ namespace E_Commerce.Core.DTO.OfferDTO
 {
     public class GetOffersDTO
     {
+        public int Id { get; set; }
         public IFormFile Image { get; set; }
     }
 }
