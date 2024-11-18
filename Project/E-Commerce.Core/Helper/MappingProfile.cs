@@ -15,8 +15,8 @@ namespace E_Commerce.Core.Helper
         public MappingProfile()
         {
 
-        //    CreateMap<Product, GetProductDTO>().ForMember(p => p.Category, o => o.MapFrom(s => s.Category.Name))
-        //        .ForMember(dest => dest.ImagePath, opt => opt.MapFrom(src => src.Image)); 
+            CreateMap<Product, GetProductDTO>().ForMember(p => p.Category, o => o.MapFrom(s => s.Category.Name))
+               .ForMember(dest => dest.ImagePath, opt => opt.MapFrom(src => src.Image)); 
         }
     }
 }

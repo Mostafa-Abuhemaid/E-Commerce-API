@@ -32,20 +32,20 @@ namespace WebApplication1.Controllers
         [HttpGet("GetAllProducts")]
         public async Task<IActionResult> GetAllProducts()
         {
-            var products = await _appContext.Products.ToListAsync();
+            var products = await _appContext.Products.Include(c=>c.Category).ToListAsync();
 
             if (products == null || products.Count == 0)
             {
                 return NotFound("No products found.");
             }
 
-			//var productDTOs = _mapper.Map<List<GetProductDTO>>(products);
-			for (int i = 0; i < products.Count(); i++)
+			var productDTOs = _mapper.Map<List<GetProductDTO>>(products);
+			for (int i = 0; i < productDTOs.Count(); i++)
 			{
-                products[i].Image = $"{_configuration["BaseURL"]}/Images/Product/{products[i].Image}";
+                productDTOs[i].ImagePath = $"{_configuration["BaseURL"]}/Images/Product/{productDTOs[i].ImagePath}";
 
 			}
-			return Ok(products);
+			return Ok(productDTOs);
         }
 
 

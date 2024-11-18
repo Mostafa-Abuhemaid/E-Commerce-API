@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{348736B8-98AC-48FF-9661-1353DFA40E92}|WebApplication1\\WebApplication1.csproj|g:\\e-commerce project\\git\\e-commerce-api\\project\\webapplication1\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{348736B8-98AC-48FF-9661-1353DFA40E92}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{348736B8-98AC-48FF-9661-1353DFA40E92}|WebApplication1\\WebApplication1.csproj|g:\\e-commerce project\\git\\e-commerce-api\\project\\webapplication1\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{348736B8-98AC-48FF-9661-1353DFA40E92}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5B364585-F465-4A68-B06A-2458560E9F52}|E-Commerce.Core\\E-Commerce.Core.csproj|g:\\e-commerce project\\git\\e-commerce-api\\project\\e-commerce.core\\helper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B364585-F465-4A68-B06A-2458560E9F52}|E-Commerce.Core\\E-Commerce.Core.csproj|solutionrelative:e-commerce.core\\helper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5B364585-F465-4A68-B06A-2458560E9F52}|E-Commerce.Core\\E-Commerce.Core.csproj|g:\\e-commerce project\\git\\e-commerce-api\\project\\e-commerce.core\\dto\\productdto\\getproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B364585-F465-4A68-B06A-2458560E9F52}|E-Commerce.Core\\E-Commerce.Core.csproj|solutionrelative:e-commerce.core\\dto\\productdto\\getproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5B364585-F465-4A68-B06A-2458560E9F52}|E-Commerce.Core\\E-Commerce.Core.csproj|g:\\e-commerce project\\git\\e-commerce-api\\project\\e-commerce.core\\helper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B364585-F465-4A68-B06A-2458560E9F52}|E-Commerce.Core\\E-Commerce.Core.csproj|solutionrelative:e-commerce.core\\helper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{348736B8-98AC-48FF-9661-1353DFA40E92}|WebApplication1\\WebApplication1.csproj|g:\\e-commerce project\\git\\e-commerce-api\\project\\webapplication1\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{348736B8-98AC-48FF-9661-1353DFA40E92}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{348736B8-98AC-48FF-9661-1353DFA40E92}|WebApplication1\\WebApplication1.csproj|g:\\e-commerce project\\git\\e-commerce-api\\project\\webapplication1\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{348736B8-98AC-48FF-9661-1353DFA40E92}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5B364585-F465-4A68-B06A-2458560E9F52}|E-Commerce.Core\\E-Commerce.Core.csproj|g:\\e-commerce project\\git\\e-commerce-api\\project\\e-commerce.core\\dto\\categorydto\\getcategorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -94,7 +94,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
@@ -127,39 +127,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "GetProductDTO.cs",
               "DocumentMoniker": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Core\\DTO\\ProductDTO\\GetProductDTO.cs",
               "RelativeDocumentMoniker": "E-Commerce.Core\\DTO\\ProductDTO\\GetProductDTO.cs",
               "ToolTip": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Core\\DTO\\ProductDTO\\GetProductDTO.cs",
               "RelativeToolTip": "E-Commerce.Core\\DTO\\ProductDTO\\GetProductDTO.cs",
-              "ViewState": "AQIAAAsAAAAAMzMzMzPzvxQAAAAIAAAA",
+              "ViewState": "AQIAAAsAAABgZmZmZmYswBQAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-13T11:47:26.578Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ProductController.cs",
               "DocumentMoniker": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Controllers\\ProductController.cs",
               "ToolTip": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\Controllers\\ProductController.cs",
               "RelativeToolTip": "WebApplication1\\Controllers\\ProductController.cs",
-              "ViewState": "AQIAAB4AAAAAZ2ZmZmYSwCwAAABjAAAA",
+              "ViewState": "AQIAAB4AAAAAZ2ZmZmYSwDMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-11T22:38:42.507Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "MappingProfile.cs",
               "DocumentMoniker": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Core\\Helper\\MappingProfile.cs",
               "RelativeDocumentMoniker": "E-Commerce.Core\\Helper\\MappingProfile.cs",
               "ToolTip": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\E-Commerce.Core\\Helper\\MappingProfile.cs",
               "RelativeToolTip": "E-Commerce.Core\\Helper\\MappingProfile.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAswBMAAAAIAAAA",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAswA0AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-13T12:20:25.148Z",
               "EditorCaption": ""
@@ -174,12 +174,11 @@
               "RelativeToolTip": "E-Commerce.Core\\DTO\\CategoryDTO\\GetCategoryDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T11:47:57.983Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T11:47:57.983Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "CategoryController.cs",
               "DocumentMoniker": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Controllers\\CategoryController.cs",
@@ -200,8 +199,7 @@
               "RelativeToolTip": "E-Commerce.Core\\Entities\\Product.cs",
               "ViewState": "AQIAAA8AAAAwMzMzMzM2wB0AAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T11:47:47.499Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T11:47:47.499Z"
             },
             {
               "$type": "Document",
@@ -213,8 +211,7 @@
               "RelativeToolTip": "E-Commerce.Core\\Entities\\Category.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAAwAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T12:07:17.686Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T12:07:17.686Z"
             },
             {
               "$type": "Document",
@@ -239,8 +236,7 @@
               "RelativeToolTip": "WebApplication1\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-09T14:22:24.207Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-09T14:22:24.207Z"
             },
             {
               "$type": "Document",
@@ -252,8 +248,7 @@
               "RelativeToolTip": "WebApplication1\\Controllers\\FavoriteController.cs",
               "ViewState": "AQIAADQAAACANDMzMzMDwEkAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T16:29:47.956Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T16:29:47.956Z"
             },
             {
               "$type": "Document",
@@ -265,8 +260,7 @@
               "RelativeToolTip": "ECommerce.Repository\\Implementation\\FavoriteRepository.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAACMAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T21:56:50.62Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T21:56:50.62Z"
             },
             {
               "$type": "Document",

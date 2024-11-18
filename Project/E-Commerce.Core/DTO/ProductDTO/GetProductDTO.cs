@@ -18,6 +18,6 @@ namespace E_Commerce.Core.DTO.ProductDTO
 
         public int CategoryId { get; set; }
 
-      //  public string Category { get; set; }
+        public string Category { get; set; }
     }
 }
