@@ -55,27 +55,19 @@ namespace WebApplication1.Controllers
 		public async Task<IActionResult> getProductByIdAsync([FromRoute]int id)
 		{
 
-			var pro = await _appContext.Products.FirstOrDefaultAsync(x => x.Id == id);
+            var pro = await _appContext.Products.Include(p=>p.Category).FirstOrDefaultAsync(x => x.Id == id);
 		
 			if (ModelState.IsValid)
 			{
 				var Url = $"{_configuration["BaseURL"]}/Images/Product/{pro.Image}";
-				var productDto = new GetProductDTO
-				{
-					Id = pro.Id,
-					Name = pro.Name,
-					Price = pro.Price,
-					Material = pro.Material,
-					Description = pro.Description,
-					ImagePath = Url,
-					SubCategory= pro.SubCategory,
-					CategoryId = pro.CategoryId
-				};
-				return Ok(productDto);
+                var productDTOs = _mapper.Map<GetProductDTO>(pro);
+
+                productDTOs.ImagePath = Url;
+                return Ok(productDTOs);
 			}
 			return NotFound();
 		}
-        //
+        
         [HttpGet("search")]
         public async Task<IActionResult> SearchProducts([FromQuery] string name)
         {

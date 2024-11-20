@@ -1,4 +1,6 @@
-﻿using E_Commerce.Core.Entities;
+﻿using E_Commerce.Core.DTO.CategoryDTO;
+using E_Commerce.Core.DTO.ProductDTO;
+using E_Commerce.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +13,9 @@ namespace E_Commerce.Core.Repository
     public interface ICategory
     {
 
-        Task<Category> CreateCategoryAsync(Category category);
-        Task<IEnumerable<Product>> GetProductsByCategoryIdAsync(int categoryId);
-
-     
-
+        Task<Category> CreateCategoryAsync(SendCategoryDTO sendCategoryDTO);
+        Task<List<GetProductDTO>> GetProductsByCategoryIdAsync(int categoryId);
         Task DeleteCategoryAsync(int categoryId);
+        Task<List<GetCategoryDTO>> GetAllCategory();
     }
 }

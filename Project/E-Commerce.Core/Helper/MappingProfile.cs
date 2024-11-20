@@ -16,7 +16,9 @@ namespace E_Commerce.Core.Helper
         {
 
             CreateMap<Product, GetProductDTO>().ForMember(p => p.Category, o => o.MapFrom(s => s.Category.Name))
-               .ForMember(dest => dest.ImagePath, opt => opt.MapFrom(src => src.Image)); 
+               .ForMember(dest => dest.ImagePath, opt => opt.MapFrom(src => src.Image));
+
+            CreateMap<Category, GetCategoryDTO>().ForMember(dest => dest.imgURL, opt => opt.MapFrom(src => src.ImgeURL));
         }
     }
 }

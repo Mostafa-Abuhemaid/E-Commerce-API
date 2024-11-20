@@ -1,4 +1,5 @@
-﻿using E_Commerce.Core.DTO;
+﻿using AutoMapper;
+using E_Commerce.Core.DTO;
 using E_Commerce.Core.DTO.CategoryDTO;
 using E_Commerce.Core.DTO.ProductDTO;
 using E_Commerce.Core.Entities;
@@ -18,81 +19,51 @@ namespace WebApplication1.Controllers
 		private readonly AppDBContext _appContext;
 		private readonly ICategory _category;
         private readonly IConfiguration _configuration;
-        public CategoryController(AppDBContext appContext, ICategory category, IConfiguration configuration)
+        private readonly IMapper _mapper;
+        public CategoryController(AppDBContext appContext, ICategory category, IConfiguration configuration, IMapper mapper)
         {
             _appContext = appContext;
             _category = category;
             _configuration = configuration;
+            _mapper = mapper;
         }
         [HttpGet("{id}")]
 		public async Task<IActionResult> GetProductsByCategoryAsync([FromRoute] int id)
 		{
-           
             var products = await _category.GetProductsByCategoryIdAsync(id);
-
-            var productdto = products.Select(p => new GetProductDTO
-			{
-                Id = p.Id,
-				Name = p.Name,
-				Description = p.Description,
-				Material = p.Material,
-				Price = p.Price,
-                SubCategory = p.SubCategory,
-                ImagePath=p.Image,
-              
-               
-
-                
-
-
-			}
-				).ToList();
-            for (int i = 0; i < productdto.Count(); i++)
+            if(products == null)
             {
-                productdto[i].ImagePath = $"{_configuration["BaseURL"]}/Images/Product/{productdto[i].ImagePath}";
-
+                return NotFound();
             }
-            return Ok(productdto);
-
+           
+            return Ok(products);
 
 		}
+
+
         [HttpGet("GetAllCategory")]
         public async Task<IActionResult> GetAllCategoryAsync()
         {
-            var Categories = _appContext.Categories.ToList();
-            var CategoriesDTO = Categories.Select(c => new GetCategoryDTO
+        
+            var categories = await _category.GetAllCategory();
+            if (categories == null || !categories.Any())
             {
-                Id= c.Id,
-               Name=c.Name,
-               imgURL=c.ImgeURL
+                return NotFound("No categories found.");
             }
-
-                ).ToList();
-            for(int i=0;i<CategoriesDTO.Count();i++)
-            {
-                CategoriesDTO[i].imgURL = $"{_configuration["BaseURL"]}/Images/Category/{CategoriesDTO[i].imgURL}";
-            }
-            return Ok(CategoriesDTO);
+            return Ok(categories);
         }
+
 		[HttpPost]
 		public async Task<IActionResult> AddCategory(SendCategoryDTO categoryDTO)
 		{
-            if (ModelState.IsValid)
+            var category = await _category.CreateCategoryAsync(categoryDTO);
+            if (category != null)
             {
-                var imgname = Files.UploadFile(categoryDTO.formFile, "Category");
-                Category cat = new Category
-                {
-                    Name = categoryDTO.Name,
-                ImgeURL=imgname
+                return Ok($"Category '{category.Name}' has been added successfully.");
+            }
+            return BadRequest("Failed to add the category.");
 
-                };
-                await _appContext.Categories.AddAsync(cat);
-                await _appContext.SaveChangesAsync();
-                return Ok("Category has be Created ");
-			}
-			return BadRequest();
-			
-		}
+        }
        
         
         [HttpDelete("{id}")]
