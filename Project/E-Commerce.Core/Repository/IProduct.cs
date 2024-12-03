@@ -1,4 +1,5 @@
-﻿using E_Commerce.Core.Entities;
+﻿using E_Commerce.Core.DTO.ProductDTO;
+using E_Commerce.Core.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,8 @@ namespace E_Commerce.Core.Repository
     public interface IProduct
     {
 
-        Task<Product> GetProductByIdAsync(int id);
-        Task<Product> CreateProductAsync(Product product);
+        Task<GetProductDTO> GetProductByIdAsync(int id);
+        Task<Product> CreateProductAsync(SendProductDTO product);
         Task UpdateProductAsync(Product product);
         Task DeleteProductAsync(int id);
 
