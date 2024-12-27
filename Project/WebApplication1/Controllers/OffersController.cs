@@ -14,13 +14,11 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class OffersController : ControllerBase
     {
-       
-        private readonly IConfiguration _configuration;
-        private readonly IUnitOfWork _unitOfWork;
-        public OffersController(AppDBContext appContext, IConfiguration configuration, IOffersService offerService, IUnitOfWork unitOfWork)
+           private readonly IUnitOfWork _unitOfWork;
+        public OffersController( IUnitOfWork unitOfWork)
         {
            
-            _configuration = configuration;
+         
             
             _unitOfWork = unitOfWork;
         }

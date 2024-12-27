@@ -15,13 +15,13 @@ namespace WebApplication1.Controllers
     [Route("api/[controller]")]
     public class FavoriteController : ControllerBase
     {
-        private readonly IFavoriteService _favoriteService;
-        private readonly IConfiguration _configuration;
+       
+        private readonly IUnitOfWork _unitOfWork;
 
-        public FavoriteController(IFavoriteService favoriteService, IConfiguration configuration)
+        public FavoriteController(IUnitOfWork unitOfWork)
         {
-            _favoriteService = favoriteService;
-            _configuration = configuration;
+       
+            _unitOfWork = unitOfWork;
         }
 
         [HttpPost("{productId}")]
@@ -30,7 +30,7 @@ namespace WebApplication1.Controllers
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (userId == null) return Unauthorized();
 
-            await _favoriteService.AddToFavorite(userId, productId);
+            await _unitOfWork.FavoriteService.AddToFavorite(userId, productId);
             return Ok("Product added to favorites.");
         }
 
@@ -42,7 +42,7 @@ namespace WebApplication1.Controllers
 
             try
             {
-                await _favoriteService.RemoveFromFavorite(userId, productId);
+                await _unitOfWork.FavoriteService.RemoveFromFavorite(userId, productId);
                 return Ok(new { message = "Product removed from favorites." });
             }
             catch (KeyNotFoundException)
@@ -57,24 +57,9 @@ namespace WebApplication1.Controllers
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (userId == null) return Unauthorized();
 
-            var favorites = await _favoriteService.GetFavorites(userId);
-            var FavDTO = favorites.Select(f => new FavoriteDTO
-
-            {
-                Name = f.Name,
-                Price = f.Price,
-                ImagePath = f.Image,
-                SubCategory = f.SubCategory,
-                CategoryId = f.CategoryId
-            }
-            ).ToList();
-
-          for(int i=0;i< FavDTO.Count();i++)
-            {
-                FavDTO[i].ImagePath = $"{_configuration["BaseURL"]}/Images/Product/{FavDTO[i].ImagePath}";
-            }
-
-            return Ok(FavDTO);
+            var favorites = await _unitOfWork.FavoriteService.GetFavorites(userId);
+           if(favorites == null) return NotFound();
+           return Ok(favorites);
         }
     }
 

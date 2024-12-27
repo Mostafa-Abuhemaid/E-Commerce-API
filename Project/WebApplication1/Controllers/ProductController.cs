@@ -20,46 +20,30 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly AppDBContext _appContext;
-        private readonly IConfiguration _configuration;
-        private readonly IMapper _mapper;
-        public readonly IProductService _product;
-
-        public ProductController(AppDBContext appContext, IConfiguration configuration, IMapper mapper, IProductService product)
+    
+        public readonly IUnitOfWork _unitOfWork;
+        public ProductController(IUnitOfWork unitOfWork)
         {
-            _appContext = appContext;
-            _configuration = configuration;
-            _mapper = mapper;
-            _product = product;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet("GetAllProducts")]
         public async Task<IActionResult> GetAllProducts()
         {
-            var products = await _appContext.Products.Include(c => c.Category).ToListAsync();
+            var products = await _unitOfWork.ProductService.GetAllProductsAsync();
 
             if (products == null || products.Count == 0)
-            {
+            
                 return NotFound("No products found.");
-            }
-
-            var productDTOs = _mapper.Map<List<GetProductDTO>>(products);
-            for (int i = 0; i < productDTOs.Count(); i++)
-            {
-                productDTOs[i].ImagePath = $"{_configuration["BaseURL"]}/Images/Product/{productDTOs[i].ImagePath}";
-
-            }
-            return Ok(productDTOs);
+           else
+            return Ok(products);
         }
-
-
-
 
         [HttpGet("{id}")]
         public async Task<IActionResult> getProductByIdAsync([FromRoute] int id)
         {
 
-            var pro = await _product.GetProductByIdAsync(id);
+            var pro = await _unitOfWork.ProductService.GetProductByIdAsync(id);
 
             if (ModelState.IsValid)
             {
@@ -77,7 +61,7 @@ namespace WebApplication1.Controllers
             if (ModelState.IsValid)
             {
 
-                var product = await _product.CreateProductAsync(productDTO);
+                var product = await _unitOfWork.ProductService.CreateProductAsync(productDTO);
                 return Ok($"{product.Name} has been Created");
             }
             return BadRequest();
@@ -86,10 +70,9 @@ namespace WebApplication1.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
-            var pro = await _appContext.Products.SingleOrDefaultAsync(p => p.Id == id);
+            var pro = await _unitOfWork.ProductService.DeleteProductAsync(id);
 
             if (pro == null) return NotFound();
-            await _product.DeleteProductAsync(id);
 
             return Ok("Product has been Deleted");
         }
@@ -98,23 +81,16 @@ namespace WebApplication1.Controllers
         [HttpGet("search")]
         public async Task<IActionResult> SearchProducts([FromQuery] string name)
         {
-            var query = _appContext.Products.Include(c => c.Category).AsQueryable();
-
-            if (!string.IsNullOrEmpty(name))
-            {
-                query = query.Where(p => p.Name.ToLower().Contains(name.ToLower()));
-            }
-            var products = await query.ToListAsync();
-            if (products == null || !products.Any())
-            {
-                return NotFound();
-            }
-            for (int i = 0; i < products.Count(); i++)
-            {
-                products[i].Image = $"{_configuration["BaseURL"]}/Images/Product/{products[i].Image}";
-
-            }
+          var products= _unitOfWork.ProductService.SearchProducts(name);
+            if(products == null) return NotFound(); 
             return Ok(products);
+        }
+        [HttpPut]
+        public async Task<IActionResult> UpdateProductAsync(int id,[FromQuery] SendProductDTO product)
+        {
+            var pro = _unitOfWork.ProductService.UpdateProductAsync(id, product);
+            if (pro == null) return NotFound();
+            return Ok("Product has been Update successfuly");
         }
     }
 }

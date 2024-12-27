@@ -13,13 +13,15 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class CartController : ControllerBase
     {
-        private readonly ICartService _cartService;
+        
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CartController(ICartService cartService)
+        public CartController(IUnitOfWork unitOfWork)
         {
-            _cartService = cartService;
+           
+            _unitOfWork = unitOfWork;
         }
-          [Authorize]
+        [Authorize]
         [HttpGet("get")]
         public async Task<IActionResult> GetCart()
         {
@@ -29,7 +31,7 @@ namespace WebApplication1.Controllers
                 return Unauthorized("User not authenticated.");
             }
 
-            var cart = await _cartService.GetCartAsync(userId);
+            var cart = await _unitOfWork.CartService.GetCartAsync(userId);
             return cart != null ? Ok(cart) : NotFound("Cart not found.");
         }
 
@@ -38,7 +40,7 @@ namespace WebApplication1.Controllers
         public async Task<IActionResult> AddToCart([FromBody] SendCartItemDTO SendCartItemDTO,Size s)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            await _cartService.AddToCartAsync(SendCartItemDTO, userId,s);
+            await _unitOfWork.CartService.AddToCartAsync(SendCartItemDTO, userId,s);
             return Ok("done");
         }
 
@@ -46,7 +48,7 @@ namespace WebApplication1.Controllers
         public async Task<IActionResult> RemoveFromCart(int productId)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            await _cartService.RemoveFromCartAsync(productId, userId);
+            await _unitOfWork.CartService.RemoveFromCartAsync(productId, userId);
             return Ok();
         }
 
@@ -54,7 +56,7 @@ namespace WebApplication1.Controllers
         public async Task<IActionResult> IncrementItemQuantity(int productId)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            await _cartService.IncrementItemQuantityAsync(productId, userId);
+            await _unitOfWork.CartService.IncrementItemQuantityAsync(productId, userId);
             return Ok();
         }
 
@@ -62,7 +64,8 @@ namespace WebApplication1.Controllers
         public async Task<IActionResult> DecrementItemQuantity(int productId)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            await _cartService.DecrementItemQuantityAsync(productId, userId);
+
+            await _unitOfWork.CartService.DecrementItemQuantityAsync(productId, userId);
             return Ok();
         }
     }

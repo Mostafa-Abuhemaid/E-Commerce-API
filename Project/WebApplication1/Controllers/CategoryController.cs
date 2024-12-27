@@ -16,21 +16,19 @@ namespace WebApplication1.Controllers
 	[ApiController]
 	public class CategoryController : ControllerBase
 	{
-		private readonly AppDBContext _appContext;
-		private readonly ICategoryService _category;
-        private readonly IConfiguration _configuration;
-        private readonly IMapper _mapper;
-        public CategoryController(AppDBContext appContext, ICategoryService category, IConfiguration configuration, IMapper mapper)
+
+        
+        private readonly IUnitOfWork _unitOfWork;
+   
+        public CategoryController( IUnitOfWork unitOfWork)
         {
-            _appContext = appContext;
-            _category = category;
-            _configuration = configuration;
-            _mapper = mapper;
+            
+            _unitOfWork = unitOfWork;
         }
         [HttpGet("{id}")]
 		public async Task<IActionResult> GetProductsByCategoryAsync([FromRoute] int id)
 		{
-            var products = await _category.GetProductsByCategoryIdAsync(id);
+            var products = await _unitOfWork.CategoryService.GetProductsByCategoryIdAsync(id);
             if(products == null)
             {
                 return NotFound();
@@ -45,7 +43,7 @@ namespace WebApplication1.Controllers
         public async Task<IActionResult> GetAllCategoryAsync()
         {
         
-            var categories = await _category.GetAllCategory();
+            var categories = await _unitOfWork.CategoryService.GetAllCategory();
             if (categories == null || !categories.Any())
             {
                 return NotFound("No categories found.");
@@ -56,7 +54,7 @@ namespace WebApplication1.Controllers
 		[HttpPost]
 		public async Task<IActionResult> AddCategory(SendCategoryDTO categoryDTO)
 		{
-            var category = await _category.CreateCategoryAsync(categoryDTO);
+            var category = await _unitOfWork.CategoryService.CreateCategoryAsync(categoryDTO);
             if (category != null)
             {
                 return Ok($"Category '{category.Name}' has been added successfully.");
@@ -69,13 +67,11 @@ namespace WebApplication1.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
-            var category = await _appContext.Categories.FindAsync(id);
+            var category = await _unitOfWork.CategoryService.DeleteCategoryAsync(id);
 
             if (category != null)
             {
-                _appContext.Categories.Remove(category);
-                await _appContext.SaveChangesAsync();
-                Files.DeleteFile(category.ImgeURL, "Category");
+          
                 return Ok("Category has deleted ");
 
             }
@@ -84,19 +80,13 @@ namespace WebApplication1.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCategory([FromRoute]int id,SendCategoryDTO sendCategoryDTO)
         {
-          var Cat= await _appContext.Categories.FindAsync(id);
-            if (Cat != null)
-            {
-                var imgname = Files.UploadFile(sendCategoryDTO.formFile, "Category");
-
-                Cat.Name = sendCategoryDTO.Name;
-                Cat.ImgeURL = imgname;
-
- await _appContext.SaveChangesAsync();
-                return Ok("Update");
-            }
-            return NotFound();
-           
+            var cat=_unitOfWork.CategoryService.UpdateCategoryAsync(id,sendCategoryDTO);    
+            if(cat != null) 
+                return Ok("Category has been Update successfuly ");
+            return BadRequest();
         }
+          
+           
+        
     }
 }

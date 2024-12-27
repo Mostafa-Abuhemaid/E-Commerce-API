@@ -15,8 +15,9 @@ namespace E_Commerce.Core.Repository
 
         Task<GetProductDTO> GetProductByIdAsync(int id);
         Task<Product> CreateProductAsync(SendProductDTO product);
-        Task UpdateProductAsync(Product product);
-        Task DeleteProductAsync(int id);
-
+        Task <bool>UpdateProductAsync([FromRoute] int id, SendProductDTO product);
+        Task <bool>DeleteProductAsync(int id);
+        Task<List<GetProductDTO>> GetAllProductsAsync();
+        Task<List<GetProductDTO>> SearchProducts([FromQuery] string name);
     }
 }

@@ -1,4 +1,5 @@
-﻿using E_Commerce.Core.Entities;
+﻿using E_Commerce.Core.DTO.FavoriteDTO;
+using E_Commerce.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace E_Commerce.Core.Repository
     {
         Task AddToFavorite(string userId, int productId);
         Task RemoveFromFavorite(string userId, int productId);
-        Task<List<Product>> GetFavorites(string userId);
+        Task<List<FavoriteDTO>> GetFavorites(string userId);
     }
 
 }

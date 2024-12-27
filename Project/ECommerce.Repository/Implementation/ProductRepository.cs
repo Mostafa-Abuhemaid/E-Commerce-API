@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
+using E_Commerce.Core.DTO.CategoryDTO;
 using E_Commerce.Core.DTO.ProductDTO;
 using E_Commerce.Core.Entities;
 using E_Commerce.Core.Repository;
 using ECommerce.Repository.Data;
 using ECommerce.Repository.Helper;
 using ECommerce.Repository.Migrations;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -43,7 +45,7 @@ namespace ECommerce.Repository.Implementation
         }
 
 
-        public async Task DeleteProductAsync(int id)
+        public async Task<bool> DeleteProductAsync(int id)
         {
             var pro = await _dbContext.Products.FindAsync(id);
            
@@ -52,11 +54,29 @@ namespace ECommerce.Repository.Implementation
                 _dbContext.Products.Remove(pro);
                 await _dbContext.SaveChangesAsync();
                 Files.DeleteFile(pro.Image, "Category");
-              
-
+              return true;
             }
+            return false;
            
 
+        }
+
+        public async Task<List<GetProductDTO>> GetAllProductsAsync()
+        {
+            var products = await _dbContext.Products.Include(c => c.Category).ToListAsync();
+
+            if (products == null || products.Count == 0)
+            {
+                return null;
+            }
+
+            var productDTOs = _mapper.Map<List<GetProductDTO>>(products);
+            for (int i = 0; i < productDTOs.Count(); i++)
+            {
+                productDTOs[i].ImagePath = $"{_configuration["BaseURL"]}/Images/Product/{productDTOs[i].ImagePath}";
+
+            }
+            return productDTOs;
         }
 
         public async Task<GetProductDTO> GetProductByIdAsync(int id)
@@ -72,9 +92,49 @@ namespace ECommerce.Repository.Implementation
         
         }
 
-        public Task UpdateProductAsync(Product product)
+        public async Task<List<GetProductDTO>> SearchProducts([FromQuery] string name)
         {
-            throw new NotImplementedException();
+            var query = _dbContext.Products.Include(c => c.Category).AsQueryable();
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(p => EF.Functions.Like(p.Name, $"%{name}%"));
+            }
+
+            var products = await query.ToListAsync();
+
+            if (!products.Any())
+            {
+                return new List<GetProductDTO>();
+            }
+
+            // Map products to DTOs
+            var productDTOs = _mapper.Map<List<GetProductDTO>>(products);
+
+            // Update ImagePath for each product DTO
+            foreach (var productDto in productDTOs)
+            {
+                productDto.ImagePath = $"{_configuration["BaseURL"]}/Images/Product/{productDto.ImagePath}";
+            }
+
+            return productDTOs;
+        }
+
+
+        public async Task<bool> UpdateProductAsync([FromRoute] int id, SendProductDTO product)
+        {
+            var pro = await _dbContext.Products.FindAsync(id);
+            if (pro != null)
+            {
+                var imgname = Files.UploadFile(product.Image, "Product");
+
+                pro.Name = product.Name;
+                pro.Image = imgname;
+
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+            return false;
         }
     }
 }

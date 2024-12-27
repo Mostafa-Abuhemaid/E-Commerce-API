@@ -5,6 +5,7 @@ using E_Commerce.Core.Entities;
 using E_Commerce.Core.Repository;
 using ECommerce.Repository.Data;
 using ECommerce.Repository.Helper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -20,6 +21,7 @@ namespace ECommerce.Repository.Implementation
         private readonly AppDBContext _Context;
         private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
+      
 
         public CategoryRepository(AppDBContext context, IMapper mapper, IConfiguration configuration)
         {
@@ -27,6 +29,7 @@ namespace ECommerce.Repository.Implementation
             _Context = context;
             _mapper = mapper;
             _configuration = configuration;
+        
         }
 
 
@@ -53,7 +56,7 @@ namespace ECommerce.Repository.Implementation
 
         }
 
-        public async Task DeleteCategoryAsync(int id)
+        public async Task<bool> DeleteCategoryAsync(int id)
         {
             var category = await _Context.Categories.FindAsync(id);
 
@@ -61,8 +64,11 @@ namespace ECommerce.Repository.Implementation
             {
                 _Context.Categories.Remove(category);
                 await _Context.SaveChangesAsync();
-              
+
+                Files.DeleteFile(category.ImgeURL, "Category");
+                return true;
             }
+            return false;
 
         }
         public async Task<List<GetProductDTO>> GetProductsByCategoryIdAsync(int categoryId)
@@ -71,7 +77,7 @@ namespace ECommerce.Repository.Implementation
                                  .Where(p => p.CategoryId == categoryId)
                                  .Include(c => c.Category)
                                  .ToListAsync();
-           
+
             var productDTOs = _mapper.Map<List<GetProductDTO>>(products);
 
             for (int i = 0; i < productDTOs.Count(); i++)
@@ -85,12 +91,28 @@ namespace ECommerce.Repository.Implementation
         public async Task<List<GetCategoryDTO>> GetAllCategory()
         {
             var categories = await _Context.Categories.ToListAsync();
-         var cat=    _mapper.Map<List<GetCategoryDTO>>(categories);
+            var cat = _mapper.Map<List<GetCategoryDTO>>(categories);
             for (int i = 0; i < cat.Count(); i++)
             {
                 cat[i].imgURL = $"{_configuration["BaseURL"]}/Images/Category/{cat[i].imgURL}";
             }
             return cat;
+        }
+
+        public async Task<bool> UpdateCategoryAsync([FromRoute] int id, SendCategoryDTO sendCategoryDTO)
+        {
+            var Cat = await _Context.Categories.FindAsync(id);
+            if (Cat != null)
+            {
+                var imgname = Files.UploadFile(sendCategoryDTO.formFile, "Category");
+
+                Cat.Name = sendCategoryDTO.Name;
+                Cat.ImgeURL = imgname;
+
+                await _Context.SaveChangesAsync();
+                return true;
+            }
+            return false;
         }
     }
 

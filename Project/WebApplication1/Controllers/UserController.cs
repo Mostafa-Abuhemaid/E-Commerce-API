@@ -17,18 +17,12 @@ namespace WebApplication1.Controllers
 
     {
 
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IUserService _userService;
-
-        public UserController(UserManager<ApplicationUser> userManager, IUserService userService)
+      private readonly IUnitOfWork _unitOfWork;
+        public UserController( IUnitOfWork unitOfWork)
         {
-            _userManager = userManager;
-            _userService = userService;
+        
+            _unitOfWork = unitOfWork;
         }
-
-        private readonly SignInManager<ApplicationUser> _signInManager;
-
-
 
         [HttpGet("GetUserDetails")]
         public async Task<ActionResult<UserDTO>> GetUserDetails()
@@ -39,7 +33,7 @@ namespace WebApplication1.Controllers
                 return BadRequest("User ID claim is missing.");
             }
 
-            var userDetails = await _userService.GetUserDetailsAsync(userId);
+            var userDetails = await _unitOfWork.UserService.GetUserDetailsAsync(userId);
 
             if (userDetails == null)
             {
@@ -59,7 +53,7 @@ namespace WebApplication1.Controllers
             }
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var result = await _userService.EditUserAsync(userId, model);
+            var result = await _unitOfWork.UserService.EditUserAsync(userId, model);
 
             if (!result)
             {

@@ -21,6 +21,7 @@ namespace ECommerce.Repository.Implementation
         public UserRepository(UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;
+          
         }
         public async Task<bool> EditUserAsync(string userId, [FromBody] UserDTO model)
         {
