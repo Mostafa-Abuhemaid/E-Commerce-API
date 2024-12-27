@@ -17,10 +17,10 @@ namespace WebApplication1.Controllers
 	public class CategoryController : ControllerBase
 	{
 		private readonly AppDBContext _appContext;
-		private readonly ICategory _category;
+		private readonly ICategoryService _category;
         private readonly IConfiguration _configuration;
         private readonly IMapper _mapper;
-        public CategoryController(AppDBContext appContext, ICategory category, IConfiguration configuration, IMapper mapper)
+        public CategoryController(AppDBContext appContext, ICategoryService category, IConfiguration configuration, IMapper mapper)
         {
             _appContext = appContext;
             _category = category;

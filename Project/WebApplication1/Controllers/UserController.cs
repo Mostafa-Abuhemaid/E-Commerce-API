@@ -1,5 +1,6 @@
 ﻿using E_Commerce.Core.DTO;
 using E_Commerce.Core.Identity;
+using E_Commerce.Core.Repository;
 using ECommerce.Repository.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -17,10 +18,12 @@ namespace WebApplication1.Controllers
     {
 
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IUserService _userService;
 
-        public UserController(UserManager<ApplicationUser> userManager)
+        public UserController(UserManager<ApplicationUser> userManager, IUserService userService)
         {
             _userManager = userManager;
+            _userService = userService;
         }
 
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -31,24 +34,19 @@ namespace WebApplication1.Controllers
         public async Task<ActionResult<UserDTO>> GetUserDetails()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var user = await _userManager.FindByIdAsync(userId);
+            if (string.IsNullOrEmpty(userId))
+            {
+                return BadRequest("User ID claim is missing.");
+            }
 
-            if (user == null)
+            var userDetails = await _userService.GetUserDetailsAsync(userId);
+
+            if (userDetails == null)
             {
                 return NotFound();
             }
 
-            var userDetails = new UserDTO
-            {
-              
-                Name = user.Name,
-                Email=user.Email,
-                Phone = user.Phone,
-                Location = user.Location,
-                Gender = user.gender
-            };
-
-            return Ok(userDetails); 
+            return Ok(userDetails);
         }
     
 
@@ -61,24 +59,11 @@ namespace WebApplication1.Controllers
             }
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var user = await _userManager.FindByIdAsync(userId);
+            var result = await _userService.EditUserAsync(userId, model);
 
-            if (user == null)
+            if (!result)
             {
-                return NotFound("User not found.");
-            }
-
-            user.Name = model.Name;
-            user.Email = model.Email;
-            user.Phone = model.Phone;
-            user.Location = model.Location;
-            user.gender = model.Gender;
-
-            var result = await _userManager.UpdateAsync(user);
-
-            if (!result.Succeeded)
-            {
-                return BadRequest(result.Errors);
+                return BadRequest("Failed to update user.");
             }
 
             return Ok("User updated successfully.");

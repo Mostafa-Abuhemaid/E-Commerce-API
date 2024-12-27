@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Repository.Implementation
 {
-    public class CategoryRepository : ICategory
+    public class CategoryRepository : ICategoryService
     {
         private readonly AppDBContext _Context;
         private readonly IMapper _mapper;

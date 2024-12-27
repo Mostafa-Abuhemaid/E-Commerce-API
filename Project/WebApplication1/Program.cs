@@ -25,10 +25,13 @@ builder.Services.AddDbContext<AppDBContext>(options =>
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 		.AddEntityFrameworkStores<AppDBContext>();
-builder.Services.AddScoped<IProduct, ProductRepository>();   
-builder.Services.AddScoped<ICategory, CategoryRepository>();
+builder.Services.AddScoped<IProductService, ProductRepository>();   
+builder.Services.AddScoped<ICategoryService, CategoryRepository>();
 builder.Services.AddScoped<ICartService, CartRepository>();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IUserService, UserRepository>();
+builder.Services.AddScoped<IOffersService,OfferRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<IFavoriteService, FavoriteRepository>();
 

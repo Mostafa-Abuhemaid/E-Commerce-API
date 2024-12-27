@@ -266,11 +266,6 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
         "Name": "Image",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
@@ -296,7 +291,7 @@
   },
   {
     "ContainingType": "WebApplication1.Controllers.OffersController",
-    "Method": "DeleteOffer",
+    "Method": "DeleteOfferasync",
     "RelativePath": "api/Offers/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,

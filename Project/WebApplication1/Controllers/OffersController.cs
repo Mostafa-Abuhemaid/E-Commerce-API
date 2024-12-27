@@ -1,6 +1,7 @@
 ﻿using E_Commerce.Core.DTO;
 using E_Commerce.Core.DTO.OfferDTO;
 using E_Commerce.Core.Entities;
+using E_Commerce.Core.Repository;
 using ECommerce.Repository.Data;
 using ECommerce.Repository.Helper;
 using Microsoft.AspNetCore.Http;
@@ -13,50 +14,40 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class OffersController : ControllerBase
     {
-        private readonly AppDBContext _appContext;
+       
         private readonly IConfiguration _configuration;
-        public OffersController(AppDBContext appContext, IConfiguration configuration)
+        private readonly IUnitOfWork _unitOfWork;
+        public OffersController(AppDBContext appContext, IConfiguration configuration, IOffersService offerService, IUnitOfWork unitOfWork)
         {
-            _appContext = appContext;
+           
             _configuration = configuration;
+            
+            _unitOfWork = unitOfWork;
         }
         [HttpPost]
         public async Task<IActionResult> CreateOferrAsync([FromForm] GetOffersDTO offersDTO)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid || offersDTO.Image == null)
             {
-                var imgname = Files.UploadFile(offersDTO.Image, "Offers");
-                Special_Offers special_Offers = new Special_Offers
-                {
-                    ImgURL = imgname
-                };
-                await _appContext.AddAsync(special_Offers);
-                await _appContext.SaveChangesAsync();
-                return Ok("offer has be added");
+                return BadRequest("Invalid input data.");
             }
             else
-                return BadRequest();
+            {
+             await _unitOfWork.OffersRepository.CreateOferrAsync(offersDTO);
+            return Ok("Offer has been added successfully.");
+            }
+        
         }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetOfferAsync([FromRoute] int id)
         {
-            var offer = await _appContext.Special_Offers.FirstOrDefaultAsync(x => x.Id == id);
-            if (ModelState.IsValid)
-            {
-                var Url = $"{_configuration["BaseURL"]}/Images/Offers/{offer.ImgURL}";
-                var off = new SendOffer
-                {
-                    Image = Url
-                };
-                return Ok(off);
-            }
-            else
-                return BadRequest();
+            var offer = await _unitOfWork.OffersRepository.GetOfferAsync(id);
+            return Ok(offer);
         }
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAllOffersAsync()
         {
-            var offers = await _appContext.Special_Offers.ToListAsync();
+            var offers = await _unitOfWork.OffersRepository.GetAllOffersAsync();
             if (offers == null)
             {
                 return NotFound();
@@ -66,17 +57,12 @@ namespace WebApplication1.Controllers
 
         }
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteOffer([FromRoute]int id)
+        public async Task<IActionResult> DeleteOfferasync([FromRoute]int id)
         {
-            var offer =await _appContext.Special_Offers.FirstOrDefaultAsync(x => x.Id == id);
-            if (offer is not null)
-            {
-                _appContext.Special_Offers.Remove(offer);
-                await _appContext.SaveChangesAsync();
-                return Ok($"{offer.Id} has deleted succesfuly");
-
-            }
+           var off = _unitOfWork.OffersRepository.DeleteOfferasync(id);
+            if (off!=null) return Ok("the offer has been deleted successfuly");
             else return BadRequest();
+
 
         }
 

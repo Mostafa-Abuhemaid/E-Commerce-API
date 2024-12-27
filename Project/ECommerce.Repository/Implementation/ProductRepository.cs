@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Repository.Implementation
 {
-    public class ProductRepository : IProduct
+    public class ProductRepository : IProductService
     {
         private readonly AppDBContext _dbContext;
         private readonly IConfiguration _configuration;

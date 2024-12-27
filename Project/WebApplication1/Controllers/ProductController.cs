@@ -23,9 +23,9 @@ namespace WebApplication1.Controllers
         private readonly AppDBContext _appContext;
         private readonly IConfiguration _configuration;
         private readonly IMapper _mapper;
-        public readonly IProduct _product;
+        public readonly IProductService _product;
 
-        public ProductController(AppDBContext appContext, IConfiguration configuration, IMapper mapper, IProduct product)
+        public ProductController(AppDBContext appContext, IConfiguration configuration, IMapper mapper, IProductService product)
         {
             _appContext = appContext;
             _configuration = configuration;
