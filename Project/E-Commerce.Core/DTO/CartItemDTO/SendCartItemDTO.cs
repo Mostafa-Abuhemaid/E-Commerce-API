@@ -1,4 +1,5 @@
-﻿using System;
+﻿using E_Commerce.Core.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,7 @@ namespace E_Commerce.Core.DTO.CartItemDTO
     {
         public int ProductId { get; set; }
         public int Quantity { get; set; }
+        public Size Size { get; set; }
+
     }
 }

@@ -14,7 +14,7 @@ namespace E_Commerce.Core.Repository
     public interface ICartService
     {
         Task<CartDTO> GetCartAsync(string userId);
-      Task AddToCartAsync(SendCartItemDTO sendCartItemDTO, string userId, Size size);
+      Task AddToCartAsync(SendCartItemDTO sendCartItemDTO, string userId);
 
         Task RemoveFromCartAsync(int productId, string userId);
         Task IncrementItemQuantityAsync(int productId, string userId);

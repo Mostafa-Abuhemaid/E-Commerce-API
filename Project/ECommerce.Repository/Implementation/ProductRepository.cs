@@ -34,6 +34,12 @@ namespace ECommerce.Repository.Implementation
         {
             if (productDTO == null)
                 throw new ArgumentNullException(nameof(productDTO), "Product data cannot be null.");
+            var categoryExists = await _dbContext.Categories.AnyAsync(c => c.Id == productDTO.CategoryId);
+            if (!categoryExists)
+            {
+                throw new ArgumentException("Invalid CategoryId. The specified category does not exist.");
+            }
+
 
             var product = _mapper.Map<Product>(productDTO);
 

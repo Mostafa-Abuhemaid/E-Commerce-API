@@ -10,7 +10,7 @@
       {
         "Name": "email",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -59,11 +59,6 @@
         "Name": "SendCartItemDTO",
         "Type": "E_Commerce.Core.DTO.CartItemDTO.SendCartItemDTO",
         "IsRequired": true
-      },
-      {
-        "Name": "s",
-        "Type": "System.String",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -87,7 +82,7 @@
   {
     "ContainingType": "WebApplication1.Controllers.CartController",
     "Method": "GetCart",
-    "RelativePath": "api/Cart/get",
+    "RelativePath": "api/Cart/GetallProductFromCart",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -140,7 +135,7 @@
         "IsRequired": false
       },
       {
-        "Name": "formFile",
+        "Name": "Image",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
       }
@@ -198,7 +193,7 @@
         "IsRequired": false
       },
       {
-        "Name": "formFile",
+        "Name": "Image",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
       }
@@ -250,7 +245,7 @@
   {
     "ContainingType": "WebApplication1.Controllers.FavoriteController",
     "Method": "GetFavorites",
-    "RelativePath": "api/Favorite/list",
+    "RelativePath": "api/Favorite/GetAllFavorite",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

@@ -6,7 +6,7 @@ namespace E_Commerce.Core.DTO.CategoryDTO
     {
 
         public string Name { get; set; }
-        public IFormFile formFile { get; set; }
+        public IFormFile Image { get; set; }
 
     }
 }

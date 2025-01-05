@@ -22,7 +22,7 @@ namespace WebApplication1.Controllers
             _unitOfWork = unitOfWork;
         }
         [Authorize]
-        [HttpGet("get")]
+        [HttpGet("GetallProductFromCart")]
         public async Task<IActionResult> GetCart()
         {
             var userId = User?.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -37,10 +37,10 @@ namespace WebApplication1.Controllers
 
         [Authorize]
         [HttpPost("add")]
-        public async Task<IActionResult> AddToCart([FromBody] SendCartItemDTO SendCartItemDTO,Size s)
+        public async Task<IActionResult> AddToCart([FromBody] SendCartItemDTO SendCartItemDTO)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            await _unitOfWork.CartService.AddToCartAsync(SendCartItemDTO, userId,s);
+            await _unitOfWork.CartService.AddToCartAsync(SendCartItemDTO, userId);
             return Ok("done");
         }
 

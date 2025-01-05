@@ -55,7 +55,7 @@ namespace ECommerce.Repository.Implementation
 
         }
 
-        public async Task AddToCartAsync(SendCartItemDTO sendCartItemDTO, string userId, Size size)
+        public async Task AddToCartAsync(SendCartItemDTO sendCartItemDTO, string userId)
         {
             var cart = await _context.Carts.FirstOrDefaultAsync(c => c.UserAppId == userId)
                        ?? new Cart { UserAppId = userId };
@@ -79,7 +79,7 @@ namespace ECommerce.Repository.Implementation
                     ProductId = sendCartItemDTO.ProductId,
                     Quantity = sendCartItemDTO.Quantity,
                     CartId = cart.Id,
-                     size = size
+                     size = sendCartItemDTO.Size
                 };
                 await _context.CartItems.AddAsync(cartItem); 
             }

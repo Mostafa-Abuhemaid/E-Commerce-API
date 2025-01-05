@@ -85,9 +85,14 @@ namespace WebApplication1.Controllers
             return Ok(res);
         }
         [HttpGet("CheckEmailExists")]
-        public async Task<IActionResult> CheckEmailExists(string email)
+        public async Task<IActionResult> CheckEmailExists([FromBody] string email)
         {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                return BadRequest("Email cannot be null or empty.");
+            }
             var res= await _userManager.FindByEmailAsync(email) ;
+
             return Ok(res is not null);
         }
       

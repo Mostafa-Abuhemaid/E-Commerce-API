@@ -86,7 +86,7 @@ namespace WebApplication1.Controllers
             return Ok(products);
         }
         [HttpPut]
-        public async Task<IActionResult> UpdateProductAsync(int id,[FromQuery] SendProductDTO product)
+        public async Task<IActionResult> UpdateProductAsync(int id,[FromForm] SendProductDTO product)
         {
             var pro = _unitOfWork.ProductService.UpdateProductAsync(id, product);
             if (pro == null) return NotFound();

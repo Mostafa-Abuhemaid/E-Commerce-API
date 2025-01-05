@@ -51,14 +51,14 @@ namespace WebApplication1.Controllers
             }
         }
 
-        [HttpGet("list")]
+        [HttpGet("GetAllFavorite")]
         public async Task<IActionResult> GetFavorites()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (userId == null) return Unauthorized();
 
             var favorites = await _unitOfWork.FavoriteService.GetFavorites(userId);
-           if(favorites == null) return NotFound();
+           if(favorites == null) return Ok("No Product found");
            return Ok(favorites);
         }
     }

@@ -24,9 +24,12 @@ namespace E_Commerce.Core.Entities
 
 		[Required(ErrorMessage = "Material is required")]
 		public string Material { get; set; }
-        public string SubCategory { get; set; } 
 
-		public int CategoryId { get; set; }
+        [Required(ErrorMessage = "SubCategory is required")]
+        public string SubCategory { get; set; }
+        [Required(ErrorMessage = "CategoryId is required")]
+
+        public int CategoryId { get; set; }
 		public Category Category { get; set; }
 	}
 }

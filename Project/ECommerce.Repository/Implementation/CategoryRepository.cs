@@ -36,7 +36,7 @@ namespace ECommerce.Repository.Implementation
         public async Task<Category> CreateCategoryAsync(SendCategoryDTO categoryDTO)
         {
 
-            var imgName = Files.UploadFile(categoryDTO.formFile, "Category");
+            var imgName = Files.UploadFile(categoryDTO.Image, "Category");
             if (string.IsNullOrEmpty(imgName))
             {
                 throw new Exception("File upload failed.");
@@ -104,7 +104,7 @@ namespace ECommerce.Repository.Implementation
             var Cat = await _Context.Categories.FindAsync(id);
             if (Cat != null)
             {
-                var imgname = Files.UploadFile(sendCategoryDTO.formFile, "Category");
+                var imgname = Files.UploadFile(sendCategoryDTO.Image, "Category");
 
                 Cat.Name = sendCategoryDTO.Name;
                 Cat.ImgeURL = imgname;
