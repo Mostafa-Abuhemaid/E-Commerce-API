@@ -7,6 +7,7 @@ using ECommerce.Repository.Data;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 
@@ -22,10 +23,12 @@ namespace ECommerce.Repository.Implementation
 
 
         private readonly AppDBContext _context;
+        private readonly IConfiguration _configuration;
 
-        public CartRepository(AppDBContext context)
+        public CartRepository(AppDBContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         public async Task<CartDTO> GetCartAsync(string userId)
@@ -39,7 +42,6 @@ namespace ECommerce.Repository.Implementation
 
             var cartDto = new CartDTO
             {
-              
                 UserAppId = cart.UserAppId,
                 Items = cart.Items.Select(item => new GetCartItemDto
                 {
@@ -47,10 +49,19 @@ namespace ECommerce.Repository.Implementation
                     ProductName = item.Product.Name,
                     Quantity = item.Quantity,
                     Price = item.Product.Price,
+                    SubCategory = item.Product.SubCategory,
+                    Material = item.Product.Material,
+                    Image = item.Product.Image,
                     TotalPriceForProduct = item.TotalPriceForProduct
                 }).ToList(),
                 TotalAmount = cart.TotalAmount
             };
+
+            foreach (var item in cartDto.Items)
+            {
+                item.Image = $"{_configuration["BaseURL"]}/Images/Product/{item.Image}";
+            }
+
             return cartDto;
 
         }

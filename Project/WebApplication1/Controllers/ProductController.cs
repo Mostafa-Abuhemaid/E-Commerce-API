@@ -85,12 +85,12 @@ namespace WebApplication1.Controllers
             if(products == null) return NotFound(); 
             return Ok(products);
         }
-        [HttpPut]
-        public async Task<IActionResult> UpdateProductAsync(int id,[FromForm] SendProductDTO product)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateProductAsync([FromRoute]int id,[FromForm] SendProductDTO product)
         {
             var pro = _unitOfWork.ProductService.UpdateProductAsync(id, product);
             if (pro == null) return NotFound();
-            return Ok("Product has been Update successfuly");
+            return Ok($"Product {id} has been Update successfuly");
         }
     }
 }

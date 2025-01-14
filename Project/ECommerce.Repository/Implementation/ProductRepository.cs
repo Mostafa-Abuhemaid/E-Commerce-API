@@ -127,7 +127,7 @@ namespace ECommerce.Repository.Implementation
         }
 
 
-        public async Task<bool> UpdateProductAsync([FromRoute] int id, SendProductDTO product)
+        public async Task<bool> UpdateProductAsync( int id, SendProductDTO product)
         {
             var pro = await _dbContext.Products.FindAsync(id);
             if (pro != null)
