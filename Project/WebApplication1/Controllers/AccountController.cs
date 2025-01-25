@@ -2,6 +2,7 @@
 using E_Commerce.Core.DTO.AccountDTO;
 using E_Commerce.Core.Identity;
 using E_Commerce.Core.Service;
+using E_Commerce.Core.Settings;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -18,16 +19,22 @@ namespace WebApplication1.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IConfiguration _configuration;
         private readonly ITokenService _tokenService;
+        private readonly IEmailService _emailService;
+        private readonly IVerificationCodeCache _codeCache;
 
         public AccountController(UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IConfiguration configuration,
-            ITokenService tokenService)
+            ITokenService tokenService,
+            IEmailService emailService,
+            IVerificationCodeCache codeCache)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _configuration = configuration;
             _tokenService = tokenService;
+            _emailService = emailService;
+            _codeCache = codeCache;
         }
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDTO registerDTO)
@@ -95,7 +102,28 @@ namespace WebApplication1.Controllers
 
             return Ok(res is not null);
         }
-      
+        [HttpPost("ForgotPassword")]
+        public async Task <IActionResult> ForgotPassword([FromBody] ForgotPasswordDTO request)
+        {
+            var user = await _userManager.FindByEmailAsync(request.Email);
+            if (user == null) return Ok(); // Don't reveal if user exists
 
+            var code = Generate6DigitCode();
+            _codeCache.StoreCode(request.Email, code);
+
+            await _emailService.SendEmailAsync(request.Email, "Password Reset Code",
+                $"Your verification code is: {code}");
+
+            return Ok();
+
+        }
+
+
+
+
+        private string Generate6DigitCode()
+        {
+            return new Random().Next(100000, 999999).ToString();
+        }
     }
 }

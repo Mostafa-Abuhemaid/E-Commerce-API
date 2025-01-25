@@ -156,3 +156,8 @@ G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\ref\WebApplication1.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\bin\Release\net8.0\AutoMapper.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\bin\Release\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\bin\Release\net8.0\BouncyCastle.Cryptography.dll
+G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\bin\Release\net8.0\MimeKit.dll
+G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\bin\Release\net8.0\System.Formats.Asn1.dll
+G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\bin\Release\net8.0\System.Security.Cryptography.Pkcs.dll
+G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\bin\Release\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll

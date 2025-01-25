@@ -2,6 +2,7 @@ using E_Commerce.Core.Helper;
 using E_Commerce.Core.Identity;
 using E_Commerce.Core.Repository;
 using E_Commerce.Core.Service;
+using E_Commerce.Core.Settings;
 using E_Commerce.Service;
 using ECommerce.Repository.Data;
 using ECommerce.Repository.Implementation;
@@ -34,6 +35,9 @@ builder.Services.AddScoped<IOffersService,OfferRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<IFavoriteService, FavoriteRepository>();
+builder.Services.Configure<MailSettings>(configuration.GetSection("MailSettings"));
+builder.Services.AddTransient<IEmailService, EmailService>();
+builder.Services.AddTransient<IVerificationCodeCache, VerificationCodeCache>();
 
 builder.Services.AddAuthentication(options =>
 {
