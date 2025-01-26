@@ -25,7 +25,8 @@ builder.Services.AddDbContext<AppDBContext>(options =>
 		builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-		.AddEntityFrameworkStores<AppDBContext>();
+		.AddEntityFrameworkStores<AppDBContext>()
+        .AddDefaultTokenProviders(); 
 builder.Services.AddScoped<IProductService, ProductRepository>();   
 builder.Services.AddScoped<ICategoryService, CategoryRepository>();
 builder.Services.AddScoped<ICartService, CartRepository>();
@@ -37,7 +38,7 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<IFavoriteService, FavoriteRepository>();
 builder.Services.Configure<MailSettings>(configuration.GetSection("MailSettings"));
 builder.Services.AddTransient<IEmailService, EmailService>();
-builder.Services.AddTransient<IVerificationCodeCache, VerificationCodeCache>();
+builder.Services.AddMemoryCache();
 
 builder.Services.AddAuthentication(options =>
 {
@@ -47,7 +48,7 @@ builder.Services.AddAuthentication(options =>
 })
              .AddJwtBearer(o =>
              {
-                 o.RequireHttpsMetadata = false;// to make it an work at any protocol like http,https
+                 o.RequireHttpsMetadata = false;
                  o.SaveToken = false;
                  o.TokenValidationParameters = new TokenValidationParameters
                  {
@@ -61,7 +62,7 @@ builder.Services.AddAuthentication(options =>
                      ValidAudience = configuration["JWT:Audience"],
 
                      ValidateLifetime = true,
-                     ClockSkew = TimeSpan.Zero // To Strict validation of token expiration
+                     ClockSkew = TimeSpan.Zero 
                  };
              });
 

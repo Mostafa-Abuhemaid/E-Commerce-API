@@ -8,6 +8,7 @@ G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\Azure.Core.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\Azure.Identity.dll
+G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\BouncyCastle.Cryptography.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\DotNetOpenAuth.Core.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\DotNetOpenAuth.OpenId.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
@@ -37,14 +38,17 @@ G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\Microsoft.OpenApi.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\Microsoft.SqlServer.Server.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
+G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\MimeKit.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\System.Configuration.ConfigurationManager.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\System.Drawing.Common.dll
+G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\System.Formats.Asn1.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\System.Memory.Data.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\System.Runtime.Caching.dll
+G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\System.Security.Cryptography.Pkcs.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\System.Security.Permissions.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\System.Text.Json.dll
@@ -59,6 +63,7 @@ G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\PubTmp\Out\E-Commerce.Core.dll

@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "WebApplication1.Controllers.AccountController",
-    "Method": "CheckEmailExists",
+    "Method": "CheckEmailExistsAsync",
     "RelativePath": "api/Account/CheckEmailExists",
     "HttpMethod": "GET",
     "IsController": true,
@@ -17,15 +17,15 @@
   },
   {
     "ContainingType": "WebApplication1.Controllers.AccountController",
-    "Method": "ForgotPassword",
-    "RelativePath": "api/Account/ForgotPassword",
+    "Method": "ForgetPassword",
+    "RelativePath": "api/Account/ForgetPassword",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "request",
-        "Type": "E_Commerce.Core.DTO.AccountDTO.ForgotPasswordDTO",
+        "Type": "E_Commerce.Core.DTO.AccountDTO.ForgotDTO",
         "IsRequired": true
       }
     ],
@@ -58,6 +58,38 @@
       {
         "Name": "registerDTO",
         "Type": "E_Commerce.Core.DTO.AccountDTO.RegisterDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.AccountController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/Account/ResetPassword",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resetPassword",
+        "Type": "E_Commerce.Core.DTO.AccountDTO.ResetPasswordDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.AccountController",
+    "Method": "VerifyOTP",
+    "RelativePath": "api/Account/VerifyOTP",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "verify",
+        "Type": "E_Commerce.Core.DTO.AccountDTO.VerifyCodeDTO",
         "IsRequired": true
       }
     ],

@@ -7,7 +7,10 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.Data;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace WebApplication1.Controllers
 {
@@ -20,26 +23,31 @@ namespace WebApplication1.Controllers
         private readonly IConfiguration _configuration;
         private readonly ITokenService _tokenService;
         private readonly IEmailService _emailService;
-        private readonly IVerificationCodeCache _codeCache;
+        private readonly IMemoryCache memo;
+        private readonly ILogger<AccountController> _logger;
 
         public AccountController(UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IConfiguration configuration,
             ITokenService tokenService,
             IEmailService emailService,
-            IVerificationCodeCache codeCache)
+
+            IMemoryCache memo,
+            ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _configuration = configuration;
             _tokenService = tokenService;
             _emailService = emailService;
-            _codeCache = codeCache;
+
+            this.memo = memo;
+            _logger = logger;
         }
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDTO registerDTO)
         {
-            var emailExists = await CheckEmailExists(registerDTO.Email);
+            var emailExists = await CheckEmailExistsAsync(registerDTO.Email);
 
             if (emailExists is OkObjectResult resul && (bool)resul.Value)
             {
@@ -92,7 +100,7 @@ namespace WebApplication1.Controllers
             return Ok(res);
         }
         [HttpGet("CheckEmailExists")]
-        public async Task<IActionResult> CheckEmailExists([FromBody] string email)
+        public async Task<IActionResult> CheckEmailExistsAsync([FromBody] string email)
         {
             if (string.IsNullOrWhiteSpace(email))
             {
@@ -102,28 +110,73 @@ namespace WebApplication1.Controllers
 
             return Ok(res is not null);
         }
-        [HttpPost("ForgotPassword")]
-        public async Task <IActionResult> ForgotPassword([FromBody] ForgotPasswordDTO request)
+        [HttpPost("ForgetPassword")]
+        public async Task<ActionResult> ForgetPassword([FromBody] ForgotDTO request)
         {
             var user = await _userManager.FindByEmailAsync(request.Email);
-            if (user == null) return Ok(); // Don't reveal if user exists
+            if (user == null) return NotFound("Your email is not found.");
 
-            var code = Generate6DigitCode();
-            _codeCache.StoreCode(request.Email, code);
-
-            await _emailService.SendEmailAsync(request.Email, "Password Reset Code",
-                $"Your verification code is: {code}");
-
-            return Ok();
+            var otp = new Random().Next(100000, 999999).ToString();
+            memo.Set(request.Email, otp, TimeSpan.FromMinutes(60));
+            await _emailService.SendEmailAsync(request.Email, "Clothing store", $"Your VerifyOTP code is :{ otp}" );
+            return Ok(new ForgotPasswordDTO
+            {
+                Token = await _userManager.GeneratePasswordResetTokenAsync(user),
+                Message = "Check your mail!"
+            });
 
         }
-
-
-
-
-        private string Generate6DigitCode()
+        [HttpPost("VerifyOTP")]
+        public async Task<ActionResult> VerifyOTP([FromBody] VerifyCodeDTO verify)
         {
-            return new Random().Next(100000, 999999).ToString();
+         
+            var user = await _userManager.FindByEmailAsync(verify.Email);
+            if (user == null)
+            {
+                return NotFound($"Email '{verify.Email}' is not found.");
+            }
+
+            var cachedOtp = memo.Get(verify.Email)?.ToString();
+            if (string.IsNullOrEmpty(cachedOtp))
+            {
+                _logger.LogWarning($"No OTP found for email: {verify.Email}");
+                return BadRequest("OTP not found or has expired.");
+            }
+
+            if (verify.CodeOTP != cachedOtp)
+            {
+                _logger.LogWarning($"Invalid OTP for email: {verify.Email}. Expected: {cachedOtp}, Received: {verify.CodeOTP}");
+                return BadRequest("Invalid OTP.");
+            }
+
+            
+            _logger.LogInformation($"OTP verified successfully for email: {verify.Email}");
+            return Ok("OTP verified successfully.");
         }
+        [HttpPut("ResetPassword")]
+        public async Task<ActionResult> ResetPassword(ResetPasswordDTO resetPassword)
+        {
+            if (resetPassword.NewPassword != resetPassword.ConfirmNewPassword)
+            {
+                return BadRequest("Password and Password confirmation are not matched");
+            }
+
+            var user = await _userManager.FindByEmailAsync(resetPassword.Email);
+            if (user == null)
+            {
+                return NotFound("Email is not found!");
+            }
+
+            var result = await _userManager.ResetPasswordAsync(user, resetPassword.Token, resetPassword.NewPassword);
+            if (!result.Succeeded)
+            {
+                return BadRequest(result.Errors.ToList());
+            }
+
+            return Ok("Password updated successfully.");
+        }
+
+
+      
     }
 }

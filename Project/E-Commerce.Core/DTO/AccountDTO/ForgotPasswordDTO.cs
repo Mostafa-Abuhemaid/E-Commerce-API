@@ -11,9 +11,8 @@ namespace E_Commerce.Core.DTO.AccountDTO
 {
     public class ForgotPasswordDTO
     {
-        [Required(ErrorMessage = "Email is required")]
-        [EmailAddress(ErrorMessage = "Invalid Email")]
+        public string Token { get; set; }
+        public string Message { get; set; }
 
-        public string Email { get; set; }
     }
 }
