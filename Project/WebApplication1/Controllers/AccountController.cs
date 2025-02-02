@@ -1,6 +1,7 @@
 ﻿using E_Commerce.Core.DTO;
 using E_Commerce.Core.DTO.AccountDTO;
 using E_Commerce.Core.Identity;
+using E_Commerce.Core.Repository;
 using E_Commerce.Core.Service;
 using E_Commerce.Core.Settings;
 using Microsoft.AspNetCore.Authentication;
@@ -25,6 +26,7 @@ namespace WebApplication1.Controllers
         private readonly IEmailService _emailService;
         private readonly IMemoryCache memo;
         private readonly ILogger<AccountController> _logger;
+        private readonly IUnitOfWork _unitOfWork;
 
         public AccountController(UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
@@ -33,7 +35,8 @@ namespace WebApplication1.Controllers
             IEmailService emailService,
 
             IMemoryCache memo,
-            ILogger<AccountController> logger)
+            ILogger<AccountController> logger,
+            IUnitOfWork unitOfWork)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -43,6 +46,7 @@ namespace WebApplication1.Controllers
 
             this.memo = memo;
             _logger = logger;
+            _unitOfWork = unitOfWork;
         }
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDTO registerDTO)
@@ -100,15 +104,13 @@ namespace WebApplication1.Controllers
             return Ok(res);
         }
         [HttpGet("CheckEmailExists")]
-        public async Task<IActionResult> CheckEmailExistsAsync([FromBody] string email)
+        public async Task<IActionResult> CheckEmailExistsAsync( string email)
         {
-            if (string.IsNullOrWhiteSpace(email))
-            {
-                return BadRequest("Email cannot be null or empty.");
-            }
-            var res= await _userManager.FindByEmailAsync(email) ;
-
-            return Ok(res is not null);
+            var res= await _unitOfWork.AccountService.CheckEmailExistsAsync(email);
+            if(res)
+                  return BadRequest("The Email is already in use");
+            return Ok("The Email is not used");
+      
         }
         [HttpPost("ForgetPassword")]
         public async Task<ActionResult> ForgetPassword([FromBody] ForgotDTO request)

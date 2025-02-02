@@ -19,7 +19,8 @@ namespace ECommerce.Repository.Implementation
                           ICartService cartService,
                           IFavoriteService favoriteService,
                           IUserService userService,
-                          IProductService productService)
+                          IProductService productService,
+                          IAccountService accountService)
         {
             _context = context;
             OffersRepository = offersRepository;
@@ -28,6 +29,7 @@ namespace ECommerce.Repository.Implementation
             FavoriteService = favoriteService;
             UserService = userService;
             ProductService = productService;
+            AccountService = accountService;
         }
 
         public IOffersService OffersRepository { get; }
@@ -36,6 +38,7 @@ namespace ECommerce.Repository.Implementation
         public IFavoriteService FavoriteService { get; }
         public IUserService UserService { get; }
         public IProductService ProductService { get; }
+        public IAccountService AccountService { get; }
 
         public void Dispose()
         {

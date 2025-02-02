@@ -114,10 +114,10 @@ namespace ECommerce.Repository.Implementation
                 return new List<GetProductDTO>();
             }
 
-            // Map products to DTOs
+     
             var productDTOs = _mapper.Map<List<GetProductDTO>>(products);
 
-            // Update ImagePath for each product DTO
+   
             foreach (var productDto in productDTOs)
             {
                 productDto.ImagePath = $"{_configuration["BaseURL"]}/Images/Product/{productDto.ImagePath}";

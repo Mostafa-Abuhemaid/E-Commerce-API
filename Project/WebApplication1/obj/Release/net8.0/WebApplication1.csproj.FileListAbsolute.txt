@@ -137,7 +137,6 @@ G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\WebApplication1.AssemblyInfoInputs.cache
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\WebApplication1.AssemblyInfo.cs
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\WebApplication1.csproj.CoreCompileInputs.cache
-G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\WebApplication1.MvcApplicationPartsAssemblyInfo.cs
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\WebApplication1.MvcApplicationPartsAssemblyInfo.cache
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\WebApplication1.sourcelink.json
 G:\E-Commerce Project\git\E-Commerce-API\Project\WebApplication1\obj\Release\net8.0\staticwebassets.build.json

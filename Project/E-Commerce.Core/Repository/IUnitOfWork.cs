@@ -14,6 +14,7 @@ namespace E_Commerce.Core.Repository
         IUserService UserService { get; }
         IProductService ProductService { get; }
         ICategoryService CategoryService { get; }
+        IAccountService AccountService { get; }
 
         Task SaveChangesAsync();
     }
