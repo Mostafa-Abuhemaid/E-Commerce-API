@@ -1,4 +1,5 @@
-﻿using E_Commerce.Core.DTO;
+﻿using AutoMapper;
+using E_Commerce.Core.DTO;
 using E_Commerce.Core.DTO.AccountDTO;
 using E_Commerce.Core.Identity;
 using E_Commerce.Core.Repository;
@@ -25,6 +26,7 @@ namespace WebApplication1.Controllers
         private readonly ITokenService _tokenService;
         private readonly IEmailService _emailService;
         private readonly IMemoryCache memo;
+        private readonly IMapper _mapper;
         private readonly ILogger<AccountController> _logger;
         private readonly IUnitOfWork _unitOfWork;
 
@@ -36,7 +38,8 @@ namespace WebApplication1.Controllers
 
             IMemoryCache memo,
             ILogger<AccountController> logger,
-            IUnitOfWork unitOfWork)
+            IUnitOfWork unitOfWork,
+            IMapper mapper)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -47,6 +50,7 @@ namespace WebApplication1.Controllers
             this.memo = memo;
             _logger = logger;
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDTO registerDTO)
@@ -62,15 +66,7 @@ namespace WebApplication1.Controllers
                 return BadRequest("Password and Confirm Password donot the same ");
             }
 
-            var user = new ApplicationUser
-            {
-                UserName = registerDTO.Email,
-                Email = registerDTO.Email,
-                Name = registerDTO.Name,
-                Phone = registerDTO.Phone,
-                Location = registerDTO.Location,
-                gender = registerDTO.Gender
-            };
+            var user = _mapper.Map<ApplicationUser>(registerDTO);
 
             var result = await _userManager.CreateAsync(user, registerDTO.Password);
 
@@ -86,22 +82,19 @@ namespace WebApplication1.Controllers
             };
             return Ok(res);
         }
+
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDTO loginDto)
         {
-            var user = await _userManager.FindByEmailAsync(loginDto.Email);
-            if (user == null) return Unauthorized("Invalid email or password");
-
-            var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
-            if (!result.Succeeded) return Unauthorized("Invalid email or password");
-
-            var res = new TokenDTO()
+            try
             {
-                Email = loginDto.Email,
-              
-                Token = await _tokenService.CreateToken(user)
-            };
-            return Ok(res);
+                var result = await _unitOfWork.AccountService.LoginAsync(loginDto);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return Unauthorized(ex.Message);
+            }
         }
         [HttpGet("CheckEmailExists")]
         public async Task<IActionResult> CheckEmailExistsAsync( string email)
@@ -115,70 +108,47 @@ namespace WebApplication1.Controllers
         [HttpPost("ForgetPassword")]
         public async Task<ActionResult> ForgetPassword([FromBody] ForgotDTO request)
         {
-            var user = await _userManager.FindByEmailAsync(request.Email);
-            if (user == null) return NotFound("Your email is not found.");
-
-            var otp = new Random().Next(100000, 999999).ToString();
-            memo.Set(request.Email, otp, TimeSpan.FromMinutes(60));
-            await _emailService.SendEmailAsync(request.Email, "Clothing store", $"Your VerifyOTP code is :{ otp}" );
-            return Ok(new ForgotPasswordDTO
+            try
             {
-                Token = await _userManager.GeneratePasswordResetTokenAsync(user),
-                Message = "Check your mail!"
-            });
+                var result = await _unitOfWork.AccountService.ForgotPasswordAsync(request);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
 
         }
         [HttpPost("VerifyOTP")]
         public async Task<ActionResult> VerifyOTP([FromBody] VerifyCodeDTO verify)
         {
-         
-            var user = await _userManager.FindByEmailAsync(verify.Email);
-            if (user == null)
-            {
-                return NotFound($"Email '{verify.Email}' is not found.");
-            }
 
-            var cachedOtp = memo.Get(verify.Email)?.ToString();
-            if (string.IsNullOrEmpty(cachedOtp))
+            try
             {
-                _logger.LogWarning($"No OTP found for email: {verify.Email}");
-                return BadRequest("OTP not found or has expired.");
+                var result = await _unitOfWork.AccountService.VerifyOTPAsync(verify);
+                return result ? Ok("OTP verified successfully.") : BadRequest("Invalid OTP.");
             }
-
-            if (verify.CodeOTP != cachedOtp)
+            catch (Exception ex)
             {
-                _logger.LogWarning($"Invalid OTP for email: {verify.Email}. Expected: {cachedOtp}, Received: {verify.CodeOTP}");
-                return BadRequest("Invalid OTP.");
+                return BadRequest(ex.Message);
             }
-
-            
-            _logger.LogInformation($"OTP verified successfully for email: {verify.Email}");
-            return Ok("OTP verified successfully.");
         }
         [HttpPut("ResetPassword")]
         public async Task<ActionResult> ResetPassword(ResetPasswordDTO resetPassword)
         {
-            if (resetPassword.NewPassword != resetPassword.ConfirmNewPassword)
+            try
             {
-                return BadRequest("Password and Password confirmation are not matched");
+                var result = await _unitOfWork.AccountService.ResetPasswordAsync(resetPassword);
+                return result ? Ok("Password updated successfully.") : BadRequest("Failed to update password.");
             }
-
-            var user = await _userManager.FindByEmailAsync(resetPassword.Email);
-            if (user == null)
+            catch (Exception ex)
             {
-                return NotFound("Email is not found!");
+                return BadRequest(ex.Message);
             }
-
-            var result = await _userManager.ResetPasswordAsync(user, resetPassword.Token, resetPassword.NewPassword);
-            if (!result.Succeeded)
-            {
-                return BadRequest(result.Errors.ToList());
-            }
-
-            return Ok("Password updated successfully.");
         }
+    }
 
 
       
-    }
+    
 }

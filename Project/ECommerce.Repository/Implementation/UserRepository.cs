@@ -1,4 +1,5 @@
 ﻿
+using AutoMapper;
 using E_Commerce.Core.DTO;
 using E_Commerce.Core.Identity;
 using E_Commerce.Core.Repository;
@@ -15,13 +16,15 @@ using System.Threading.Tasks;
 namespace ECommerce.Repository.Implementation
 {
     public class UserRepository : IUserService
+
     {
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IMapper _mapper;
 
-        public UserRepository(UserManager<ApplicationUser> userManager)
+        public UserRepository(UserManager<ApplicationUser> userManager, IMapper mapper)
         {
             _userManager = userManager;
-          
+            _mapper = mapper;
         }
         public async Task<bool> EditUserAsync(string userId, [FromBody] UserDTO model)
         {
@@ -51,15 +54,9 @@ namespace ECommerce.Repository.Implementation
             if (user == null)
             {
                 return null;
-            }  
-            return new UserDTO
-            {
-                Name = user.Name,
-                Email = user.Email,
-                Phone = user.Phone,
-                Location = user.Location,
-                Gender = user.gender
-            };
+            }
+            var userDTO =_mapper.Map<UserDTO>(user);
+            return userDTO;
         }
     }
 }
