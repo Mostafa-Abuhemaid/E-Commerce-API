@@ -1,2 +1,2 @@
 # E-Commerce-API
-Developed an clothing store project using ASP.NET APIs 
+clothing store project using ASP.NET Core APIs 
