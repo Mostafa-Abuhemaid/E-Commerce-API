@@ -35,7 +35,7 @@ namespace WebApplication1.Controllers
             return cart != null ? Ok(cart) : NotFound("Cart not found.");
         }
 
-        [Authorize]
+       // [Authorize(Roles = nameof(Role.Admin))]
         [HttpPost("add")]
         public async Task<IActionResult> AddToCart([FromBody] SendCartItemDTO SendCartItemDTO)
         {
@@ -56,8 +56,8 @@ namespace WebApplication1.Controllers
         public async Task<IActionResult> IncrementItemQuantity(int productId)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            await _unitOfWork.CartService.IncrementItemQuantityAsync(productId, userId);
-            return Ok("Quantity Incremented ");
+          var quantity=await _unitOfWork.CartService.IncrementItemQuantityAsync(productId, userId);
+            return Ok(quantity);
         }
 
         [HttpPost("decrement/{productId}")]
@@ -65,8 +65,8 @@ namespace WebApplication1.Controllers
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            await _unitOfWork.CartService.DecrementItemQuantityAsync(productId, userId);
-            return Ok("Quantity decrement");
+            var quantity = await _unitOfWork.CartService.DecrementItemQuantityAsync(productId, userId);
+            return Ok(quantity);
         }
     }
 }

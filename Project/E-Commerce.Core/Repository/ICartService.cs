@@ -17,7 +17,8 @@ namespace E_Commerce.Core.Repository
       Task AddToCartAsync(SendCartItemDTO sendCartItemDTO, string userId);
 
         Task RemoveFromCartAsync(int productId, string userId);
-        Task IncrementItemQuantityAsync(int productId, string userId);
-        Task DecrementItemQuantityAsync(int productId, string userId);
+        Task <QuantityDTO> IncrementItemQuantityAsync(int productId, string userId);
+        Task<QuantityDTO> DecrementItemQuantityAsync(int productId, string userId);
+        
     }
 }

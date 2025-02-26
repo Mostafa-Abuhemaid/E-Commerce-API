@@ -301,6 +301,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebApplication1.Controllers.FavoriteController",
+    "Method": "IsFavorite",
+    "RelativePath": "api/Favorite/IsFavorite",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebApplication1.Controllers.OffersController",
     "Method": "CreateOferrAsync",
     "RelativePath": "api/Offers",

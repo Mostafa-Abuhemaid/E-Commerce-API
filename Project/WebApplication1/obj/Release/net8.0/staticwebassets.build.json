@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lS+LJNI9XJN/KmE1BpVmUis4c7apSCQlQG9s4kptsrE=",
+  "Hash": "Hd3Z2dE+JQ1jklWuxDV8Peoc1TDhp1xCWSG5qMgx6V8=",
   "Source": "WebApplication1",
   "BasePath": "_content/WebApplication1",
   "Mode": "Default",
@@ -148,6 +148,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Offers\\8e73aae3-e548-4110-8af0-f867c7f84463images.jpeg"
+    },
+    {
+      "Identity": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\wwwroot\\Images\\Offers\\9eb081d0-b1b3-4fd0-9802-ca889cc9aa29709106860_max.jpg",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "Images/Offers/9eb081d0-b1b3-4fd0-9802-ca889cc9aa29709106860_max.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Offers\\9eb081d0-b1b3-4fd0-9802-ca889cc9aa29709106860_max.jpg"
     },
     {
       "Identity": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\wwwroot\\Images\\Offers\\abd81ff6-48c8-4805-9aa3-2cf2a79a1d1bUntitled.jpg",

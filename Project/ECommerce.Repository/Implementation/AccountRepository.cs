@@ -2,6 +2,7 @@
 using DotNetOpenAuth.OpenId.Extensions.SimpleRegistration;
 using E_Commerce.Core.DTO;
 using E_Commerce.Core.DTO.AccountDTO;
+using E_Commerce.Core.Enums;
 using E_Commerce.Core.Identity;
 using E_Commerce.Core.Repository;
 using E_Commerce.Core.Service;
@@ -12,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using static DotNetOpenAuth.OpenId.Extensions.AttributeExchange.WellKnownAttributes.Contact;
@@ -27,6 +29,7 @@ namespace ECommerce.Repository.Implementation
     private readonly IMemoryCache _memoryCache;
     private readonly ILogger<AccountRepository> _logger;
         private readonly IMapper _mapper;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public AccountRepository(
         UserManager<ApplicationUser> userManager,
@@ -35,7 +38,8 @@ namespace ECommerce.Repository.Implementation
         IEmailService emailService,
         IMemoryCache memoryCache,
         ILogger<AccountRepository> logger,
-        IMapper mapper)
+        IMapper mapper,
+        RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -44,6 +48,7 @@ namespace ECommerce.Repository.Implementation
             _memoryCache = memoryCache;
             _logger = logger;
             _mapper = mapper;
+            _roleManager = roleManager;
         }
 
         public async Task<bool> CheckEmailExistsAsync(string email)
@@ -88,7 +93,7 @@ namespace ECommerce.Repository.Implementation
             return new TokenDTO
             {
                 Email = loginDTO.Email,
-                Token = await _tokenService.CreateToken(user)
+                Token = await _tokenService.CreateTokenAsync(user, _userManager)
             };
         }
 
@@ -108,6 +113,12 @@ namespace ECommerce.Repository.Implementation
             
             
             var result = await _userManager.CreateAsync(user, registerDTO.Password);
+            if (!await _roleManager.RoleExistsAsync("User"))
+            {
+                await _roleManager.CreateAsync(new IdentityRole("User"));
+            }
+
+            await _userManager.AddToRoleAsync(user, "User");
 
             if (!result.Succeeded)
                 throw new Exception("User creation failed");
@@ -115,7 +126,7 @@ namespace ECommerce.Repository.Implementation
             return new TokenDTO
             {
                 Email = registerDTO.Email,
-                Token = await _tokenService.CreateToken(user)
+                Token = await _tokenService.CreateTokenAsync(user, _userManager)
             };
         }
 

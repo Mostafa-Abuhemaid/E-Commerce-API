@@ -110,7 +110,7 @@ namespace ECommerce.Repository.Implementation
             await _context.SaveChangesAsync();
         }
 
-        public async Task IncrementItemQuantityAsync(int productId, string userId)
+        public async Task<QuantityDTO> IncrementItemQuantityAsync(int productId, string userId)
         {
             var cart = await _context.Carts.FirstOrDefaultAsync(c => c.UserAppId == userId);
             if (cart == null) throw new Exception("Cart not found.");
@@ -119,10 +119,18 @@ namespace ECommerce.Repository.Implementation
             if (item == null) throw new Exception("Item not found in cart.");
 
             item.Quantity++;
-            await _context.SaveChangesAsync(); 
+            var quantit = new QuantityDTO
+            {
+                ProductId = productId,
+                quantity = item.Quantity
+            };
+            await _context.SaveChangesAsync();
+            return quantit;
+
+
         }
 
-        public async Task DecrementItemQuantityAsync(int productId, string userId)
+        public async Task<QuantityDTO> DecrementItemQuantityAsync(int productId, string userId)
         {
             var cart = await _context.Carts.FirstOrDefaultAsync(c => c.UserAppId == userId);
             if (cart == null) throw new Exception("Cart not found.");
@@ -138,8 +146,14 @@ namespace ECommerce.Repository.Implementation
             {
                 _context.CartItems.Remove(item); 
             }
+            var quantit = new QuantityDTO
+            {
+                ProductId = productId,
+                quantity = item.Quantity
+            };
+            await _context.SaveChangesAsync();
+            return quantit;
 
-            await _context.SaveChangesAsync(); 
         }
     }
  

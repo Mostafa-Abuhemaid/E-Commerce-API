@@ -1,5 +1,6 @@
 ﻿using E_Commerce.Core.Identity;
 using E_Commerce.Core.Service;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -20,7 +21,7 @@ namespace E_Commerce.Service
         {
             _configuration = configuration;
         }
-        public async Task<string> CreateToken(ApplicationUser user)
+        public async Task<string> CreateTokenAsync(ApplicationUser user, UserManager<ApplicationUser> userManager)
         {
            var AuthClaims = new List<Claim>()
            { new Claim(ClaimTypes.NameIdentifier, user.Id),
@@ -28,6 +29,12 @@ namespace E_Commerce.Service
                new Claim(ClaimTypes.Email, user.Email)
 
            };
+            var Roles = await userManager.GetRolesAsync(user);
+
+            foreach (var Role in Roles)
+            {
+                AuthClaims.Add(new Claim(ClaimTypes.Role, Role));
+            }
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Key"]));
             var token = new JwtSecurityToken(
                 issuer: _configuration["JWT:Issuer"],

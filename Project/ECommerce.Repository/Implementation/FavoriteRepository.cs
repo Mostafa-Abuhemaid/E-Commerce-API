@@ -79,5 +79,20 @@ namespace ECommerce.Repository.Implementation
             else
             return null;
         }
+
+        public async Task<IsFavorite> IsFavorite(string userId, int productId)
+        {
+            var favorite = await _context.Favorites
+                .FirstOrDefaultAsync(f => f.UserId == userId && f.ProductId == productId);
+            var ok = new IsFavorite
+            {
+                ProductId = productId,
+                Is_Favorite = false
+            };
+            if (favorite != null)
+            ok.Is_Favorite = true;
+                
+             return ok;
+        }
     }
 }

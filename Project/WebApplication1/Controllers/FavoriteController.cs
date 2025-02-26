@@ -61,6 +61,15 @@ namespace WebApplication1.Controllers
            if(favorites == null) return Ok("No Product found");
            return Ok(favorites);
         }
+        [HttpPost("IsFavorite")]
+        public async Task<IActionResult> IsFavorite([FromQuery] int productId)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null) return Unauthorized();
+
+           var fav= await _unitOfWork.FavoriteService.IsFavorite(userId, productId);
+            return Ok(fav);
+        }
     }
 
 }

@@ -1,9 +1,11 @@
 ﻿using E_Commerce.Core.DTO;
 using E_Commerce.Core.DTO.OfferDTO;
 using E_Commerce.Core.Entities;
+using E_Commerce.Core.Enums;
 using E_Commerce.Core.Repository;
 using ECommerce.Repository.Data;
 using ECommerce.Repository.Helper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +24,7 @@ namespace WebApplication1.Controllers
             
             _unitOfWork = unitOfWork;
         }
+       // [Authorize(Roles = "User")]
         [HttpPost]
         public async Task<IActionResult> CreateOferrAsync([FromForm] GetOffersDTO offersDTO)
         {

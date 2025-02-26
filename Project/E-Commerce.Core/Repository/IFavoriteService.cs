@@ -14,6 +14,7 @@ namespace E_Commerce.Core.Repository
         Task AddToFavorite(string userId, int productId);
         Task RemoveFromFavorite(string userId, int productId);
         Task<List<FavoriteDTO>> GetFavorites(string userId);
+        Task <IsFavorite> IsFavorite(string userId, int ProductId);
     }
 
 }
