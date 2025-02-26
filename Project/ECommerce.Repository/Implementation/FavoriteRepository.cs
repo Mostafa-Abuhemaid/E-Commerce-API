@@ -59,7 +59,9 @@ namespace ECommerce.Repository.Implementation
                 .ToListAsync();
             var FavDTO = fav.Select(f => new FavoriteDTO
 
+
             {
+                ProductId=f.Id,
                 Name = f.Name,
                 Price = f.Price,
                 ImagePath = f.Image,

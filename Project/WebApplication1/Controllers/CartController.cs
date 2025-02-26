@@ -49,7 +49,7 @@ namespace WebApplication1.Controllers
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             await _unitOfWork.CartService.RemoveFromCartAsync(productId, userId);
-            return Ok();
+            return Ok("The Product was removed");
         }
 
         [HttpPost("increment/{productId}")]
@@ -57,7 +57,7 @@ namespace WebApplication1.Controllers
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             await _unitOfWork.CartService.IncrementItemQuantityAsync(productId, userId);
-            return Ok();
+            return Ok("Quantity Incremented ");
         }
 
         [HttpPost("decrement/{productId}")]
@@ -66,7 +66,7 @@ namespace WebApplication1.Controllers
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             await _unitOfWork.CartService.DecrementItemQuantityAsync(productId, userId);
-            return Ok();
+            return Ok("Quantity decrement");
         }
     }
 }

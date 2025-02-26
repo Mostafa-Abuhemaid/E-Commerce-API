@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DotNetOpenAuth.OpenId.Extensions.SimpleRegistration;
 using E_Commerce.Core.DTO;
 using E_Commerce.Core.DTO.AccountDTO;
 using E_Commerce.Core.DTO.CategoryDTO;
@@ -33,7 +34,9 @@ namespace E_Commerce.Core.Helper
             CreateMap<Category, GetCategoryDTO>().ForMember(dest => dest.imgURL, opt => opt.MapFrom(src => src.ImgeURL));
             ///////////////////////////////////////
 
-            CreateMap<RegisterDTO, ApplicationUser>();
+            CreateMap<RegisterDTO, ApplicationUser>()
+                  .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Email));
+                    //  .ForMember(dest => dest.gender, opt => opt.MapFrom(src => Enum.Parse<Gender>(src.Gender.ToString()))); ;
 
             CreateMap<ApplicationUser, UserDTO>();
         }

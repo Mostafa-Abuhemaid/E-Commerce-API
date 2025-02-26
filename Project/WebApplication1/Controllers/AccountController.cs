@@ -20,67 +20,25 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly IConfiguration _configuration;
-        private readonly ITokenService _tokenService;
-        private readonly IEmailService _emailService;
-        private readonly IMemoryCache memo;
-        private readonly IMapper _mapper;
-        private readonly ILogger<AccountController> _logger;
         private readonly IUnitOfWork _unitOfWork;
 
-        public AccountController(UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,
-            IConfiguration configuration,
-            ITokenService tokenService,
-            IEmailService emailService,
-
-            IMemoryCache memo,
-            ILogger<AccountController> logger,
-            IUnitOfWork unitOfWork,
-            IMapper mapper)
+        public AccountController(IUnitOfWork unitOfWork)
+          
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
-            _configuration = configuration;
-            _tokenService = tokenService;
-            _emailService = emailService;
-
-            this.memo = memo;
-            _logger = logger;
             _unitOfWork = unitOfWork;
-            _mapper = mapper;
         }
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDTO registerDTO)
         {
-            var emailExists = await CheckEmailExistsAsync(registerDTO.Email);
-
-            if (emailExists is OkObjectResult resul && (bool)resul.Value)
+            try
             {
-                return BadRequest("The Email is already in use");
+                var result = await _unitOfWork.AccountService.RegisterAsync(registerDTO);
+                return Ok(result);
             }
-            if (registerDTO.Password != registerDTO.ConfirmPassword)
+            catch (Exception ex)
             {
-                return BadRequest("Password and Confirm Password donot the same ");
+                return BadRequest(ex.Message);
             }
-
-            var user = _mapper.Map<ApplicationUser>(registerDTO);
-
-            var result = await _userManager.CreateAsync(user, registerDTO.Password);
-
-            if (!result.Succeeded)
-            {
-                return BadRequest(result.Errors);
-            }
-            var res = new TokenDTO()
-            {
-                Email = registerDTO.Email,
-              
-                Token =await _tokenService.CreateToken(user)
-            };
-            return Ok(res);
         }
 
         [HttpPost("login")]

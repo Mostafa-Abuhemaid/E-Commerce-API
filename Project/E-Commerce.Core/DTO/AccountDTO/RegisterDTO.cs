@@ -10,27 +10,25 @@ namespace E_Commerce.Core.DTO.AccountDTO
 {
     public class RegisterDTO
     {
-        [Required]
+        [Required(ErrorMessage = "Name is Required")]
         [MaxLength(50)]
         public string Name { get; set; }
-
-        [Required]
+        [Required(ErrorMessage = "Email is Required")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Phone is Required")]
         [Phone]
         public string Phone { get; set; }
-
-        [Required]
+        [Required(ErrorMessage = "Location is Required")]
         public string Location { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Password is Required")]
         public string Password { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "ConfirmPassword is Required")]
         public string ConfirmPassword { get; set; }
-        [Required]
-        public Gender Gender { get; set; }
+        [Required(ErrorMessage = "Gender is Required")]
+        public Gender gender { get; set; }
     }
 }

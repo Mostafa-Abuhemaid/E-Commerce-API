@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DotNetOpenAuth.OpenId.Extensions.SimpleRegistration;
 using E_Commerce.Core.DTO;
 using E_Commerce.Core.DTO.AccountDTO;
 using E_Commerce.Core.Identity;
@@ -9,9 +10,11 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DotNetOpenAuth.OpenId.Extensions.AttributeExchange.WellKnownAttributes.Contact;
 
 namespace ECommerce.Repository.Implementation
 {
@@ -91,13 +94,19 @@ namespace ECommerce.Repository.Implementation
 
         public async Task<TokenDTO> RegisterAsync(RegisterDTO registerDTO)
         {
-            var emailExists = await CheckEmailExistsAsync(registerDTO.Email);
-            if (emailExists) throw new Exception("The Email is already in use");
+            var existingUser = await _userManager.FindByEmailAsync(registerDTO.Email);
+            if (existingUser != null)
+                throw new Exception("A user with this email already exists.");
 
             if (registerDTO.Password != registerDTO.ConfirmPassword)
                 throw new Exception("Password and Confirm Password do not match");
 
-            var user = _mapper.Map<ApplicationUser>(registerDTO);
+            if (!new EmailAddressAttribute().IsValid(registerDTO.Email))
+                throw new Exception("Invalid email format.");
+
+              var user = _mapper.Map<ApplicationUser>(registerDTO);
+            
+            
             var result = await _userManager.CreateAsync(user, registerDTO.Password);
 
             if (!result.Succeeded)
