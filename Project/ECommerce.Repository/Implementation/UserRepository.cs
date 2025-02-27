@@ -1,6 +1,7 @@
 ﻿
 using AutoMapper;
 using E_Commerce.Core.DTO;
+using E_Commerce.Core.DTO.UserDto;
 using E_Commerce.Core.Identity;
 using E_Commerce.Core.Repository;
 using ECommerce.Repository.Migrations;
@@ -57,6 +58,45 @@ namespace ECommerce.Repository.Implementation
             }
             var userDTO =_mapper.Map<UserDTO>(user);
             return userDTO;
+        }
+        public async Task<List<UserDto>> GetAllUsersAsync()
+        {
+            var users = _userManager.Users.ToList(); 
+            var userDtos = users.Select(user => new UserDto
+            {
+                Id = user.Id,
+                Email = user.Email,
+                Name = user.UserName,
+                Role = _userManager.GetRolesAsync(user).Result.FirstOrDefault() 
+            }).ToList();
+
+            return userDtos;
+        }
+        public async Task<bool> LockUserByEmailAsync(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null) return false;
+
+            await _userManager.SetLockoutEnabledAsync(user, true);
+            await _userManager.SetLockoutEndDateAsync(user, DateTimeOffset.MaxValue);
+            return true;
+        }
+
+        public async Task<bool> UnlockUserByEmailAsync(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null) return false;
+
+            await _userManager.SetLockoutEndDateAsync(user, DateTimeOffset.UtcNow);
+            return true;
+        }
+        public async Task<bool> DeleteUserByEmailAsync(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null) return false;
+
+            var result = await _userManager.DeleteAsync(user);
+            return result.Succeeded;
         }
     }
 }

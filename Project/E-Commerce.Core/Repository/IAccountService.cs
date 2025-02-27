@@ -16,5 +16,6 @@ namespace E_Commerce.Core.Repository
         Task<ForgotPasswordDTO> ForgotPasswordAsync(ForgotDTO request);
         Task<bool> VerifyOTPAsync(VerifyCodeDTO verify);
         Task<bool> ResetPasswordAsync(ResetPasswordDTO resetPassword);
+       
     }
 }

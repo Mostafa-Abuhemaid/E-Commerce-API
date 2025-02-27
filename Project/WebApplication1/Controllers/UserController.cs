@@ -62,6 +62,40 @@ namespace WebApplication1.Controllers
 
             return Ok("User updated successfully.");
         }
+       // [Authorize(Roles = "Admin")]
+        [HttpPost("lock")]
+        public async Task<IActionResult> LockUser(string email)
+        {
+            var result = await _unitOfWork.UserService.LockUserByEmailAsync(email);
+            if (!result) return NotFound("User not found");
+            return Ok($"User {email} locked successfully");
+        }
+
+       // [Authorize(Roles = "Admin")]
+        [HttpPost("unlock")]
+        public async Task<IActionResult> UnlockUser(string email)
+        {
+            var result = await _unitOfWork.UserService.UnlockUserByEmailAsync(email);
+            if (!result) return NotFound("User not found");
+            return Ok($"User {email} unlocked successfully");
+        }
+       // [Authorize(Roles = "Admin")] 
+        [HttpDelete("delete")]
+        public async Task<IActionResult> DeleteUserByEmail( string email)
+        {
+            var result = await _unitOfWork.UserService.DeleteUserByEmailAsync(email);
+
+            if (!result) return NotFound(new { message = "User not found" });
+
+            return Ok(new { message = $"User {email} deleted successfully" });
+        }
+        //[Authorize(Roles = "Admin")] 
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var users = await _unitOfWork.UserService.GetAllUsersAsync();
+            return Ok(users);
+        }
     }
 }
 
