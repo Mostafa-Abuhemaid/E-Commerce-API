@@ -37,6 +37,7 @@ builder.Services.AddScoped<IOffersService, OfferRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<IFavoriteService, FavoriteRepository>();
+builder.Services.AddScoped<IOrderService,OrderRepository>();
 builder.Services.Configure<MailSettings>(configuration.GetSection("MailSettings"));
 builder.Services.AddTransient<IEmailService, EmailService>();
 builder.Services.AddMemoryCache();

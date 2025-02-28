@@ -35,7 +35,7 @@ namespace WebApplication1.Controllers
             return cart != null ? Ok(cart) : NotFound("Cart not found.");
         }
 
-       // [Authorize(Roles = nameof(Role.Admin))]
+        [Authorize]
         [HttpPost("add")]
         public async Task<IActionResult> AddToCart([FromBody] SendCartItemDTO SendCartItemDTO)
         {

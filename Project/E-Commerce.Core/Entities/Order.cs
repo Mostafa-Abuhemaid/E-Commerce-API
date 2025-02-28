@@ -1,4 +1,5 @@
-﻿using E_Commerce.Core.Identity;
+﻿using E_Commerce.Core.Enums;
+using E_Commerce.Core.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,7 +14,8 @@ namespace E_Commerce.Core.Entities
 	{
 		public int Id { get; set; }
 		public DateTime DateTime { get; set; } = DateTime.Now;
-		public string status { get; set; }
+        [Column(TypeName = "nvarchar(20)")]
+        public OrderStatus status { get; set; }= OrderStatus.Pending;
 
 		public decimal DeliveryCost { get; set; } = 60;
 		public Decimal subtotal{ get; set; }
