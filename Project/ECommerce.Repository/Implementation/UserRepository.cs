@@ -61,14 +61,16 @@ namespace ECommerce.Repository.Implementation
         }
         public async Task<List<UserDto>> GetAllUsersAsync()
         {
-            var users = _userManager.Users.ToList(); 
-            var userDtos = users.Select(user => new UserDto
+            var users = _userManager.Users.ToList();
+            var userDtos = _mapper.Map<List<UserDto>>(users);
+            foreach (var userDto in userDtos)
             {
-                Id = user.Id,
-                Email = user.Email,
-                Name = user.UserName,
-                Role = _userManager.GetRolesAsync(user).Result.FirstOrDefault() 
-            }).ToList();
+                var user = users.FirstOrDefault(u => u.Id == userDto.Id);
+                if (user != null)
+                {
+                    userDto.Role = (await _userManager.GetRolesAsync(user)).FirstOrDefault();
+                }
+            }
 
             return userDtos;
         }
