@@ -113,10 +113,7 @@ namespace ECommerce.Repository.Implementation
             
             
             var result = await _userManager.CreateAsync(user, registerDTO.Password);
-            if (!await _roleManager.RoleExistsAsync("User"))
-            {
-                await _roleManager.CreateAsync(new IdentityRole("User"));
-            }
+           
 
             await _userManager.AddToRoleAsync(user, "User");
 

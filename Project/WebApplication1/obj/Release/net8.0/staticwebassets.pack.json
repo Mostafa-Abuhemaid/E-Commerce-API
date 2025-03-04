@@ -157,20 +157,20 @@
       "PackagePath": "staticwebassets\\Images\\Product\\f069cecd-728b-4ecd-a8f1-245113d04a5fimages (1).jpeg"
     },
     {
-      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.ECommerce.APIs.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.build.WebApplication1.props",
-      "PackagePath": "build\\WebApplication1.props"
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.build.ECommerce.APIs.props",
+      "PackagePath": "build\\ECommerce.APIs.props"
     },
     {
-      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.WebApplication1.props",
-      "PackagePath": "buildMultiTargeting\\WebApplication1.props"
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.ECommerce.APIs.props",
+      "PackagePath": "buildMultiTargeting\\ECommerce.APIs.props"
     },
     {
-      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildTransitive.WebApplication1.props",
-      "PackagePath": "buildTransitive\\WebApplication1.props"
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildTransitive.ECommerce.APIs.props",
+      "PackagePath": "buildTransitive\\ECommerce.APIs.props"
     }
   ],
   "ElementsToRemove": []

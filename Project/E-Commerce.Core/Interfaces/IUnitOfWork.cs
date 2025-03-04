@@ -1,4 +1,5 @@
-﻿using System;
+﻿using E_Commerce.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace E_Commerce.Core.Repository
         ICategoryService CategoryService { get; }
         IAccountService AccountService { get; }
         IOrderService OrderService { get; }
+        INotificationService NotificationService { get; }
 
         Task SaveChangesAsync();
     }

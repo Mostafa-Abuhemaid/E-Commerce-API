@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,13 +24,15 @@ namespace ECommerce.Repository.Implementation
         private readonly AppDBContext _dbContext;
         private readonly IConfiguration _configuration;
         private readonly IMapper _mapper;
-        public ProductRepository(AppDBContext dbContext, IConfiguration configuration, IMapper mapper)
+        private readonly ILogger _logger;
+        public ProductRepository(AppDBContext dbContext, IConfiguration configuration, IMapper mapper, ILogger logger)
         {
             _dbContext = dbContext;
             _configuration = configuration;
             _mapper = mapper;
+            _logger = logger;
         }
-      
+
         public async Task<Product> CreateProductAsync(SendProductDTO productDTO)
         {
             if (productDTO == null)
@@ -116,8 +119,9 @@ namespace ECommerce.Repository.Implementation
 
      
             var productDTOs = _mapper.Map<List<GetProductDTO>>(products);
+            _logger.LogInformation($"Returning {productDTOs.Count} products");
 
-   
+
             foreach (var productDto in productDTOs)
             {
                 productDto.ImagePath = $"{_configuration["BaseURL"]}/Images/Product/{productDto.ImagePath}";

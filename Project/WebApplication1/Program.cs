@@ -1,11 +1,13 @@
 using E_Commerce.Core.Helper;
 using E_Commerce.Core.Identity;
+using E_Commerce.Core.Interfaces;
 using E_Commerce.Core.Repository;
 using E_Commerce.Core.Service;
 using E_Commerce.Core.Settings;
 using E_Commerce.Service;
 using ECommerce.Repository.Data;
 using ECommerce.Repository.Implementation;
+using ECommerce.Repository.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +29,7 @@ builder.Services.AddDbContext<AppDBContext>(options =>
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 		.AddEntityFrameworkStores<AppDBContext>()
         .AddDefaultTokenProviders(); 
+
 builder.Services.AddScoped<IProductService, ProductRepository>();   
 builder.Services.AddScoped<ICategoryService, CategoryRepository>();
 builder.Services.AddScoped<ICartService, CartRepository>();
@@ -38,6 +41,7 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<IFavoriteService, FavoriteRepository>();
 builder.Services.AddScoped<IOrderService,OrderRepository>();
+builder.Services.AddScoped<INotificationService,NotificationRepository>();
 builder.Services.Configure<MailSettings>(configuration.GetSection("MailSettings"));
 builder.Services.AddTransient<IEmailService, EmailService>();
 builder.Services.AddMemoryCache();

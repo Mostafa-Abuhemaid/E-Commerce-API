@@ -5572,9 +5572,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\WebApplication1.csproj",
-      "projectName": "WebApplication1",
-      "projectPath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\ECommerce.APIs.csproj",
+      "projectName": "ECommerce.APIs",
+      "projectPath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\ECommerce.APIs.csproj",
       "packagesPath": "C:\\Users\\CS\\.nuget\\packages\\",
       "outputPath": "G:\\E-Commerce Project\\git\\E-Commerce-API\\Project\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",

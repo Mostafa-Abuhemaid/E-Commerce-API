@@ -1,4 +1,5 @@
-﻿using E_Commerce.Core.Repository;
+﻿using E_Commerce.Core.Interfaces;
+using E_Commerce.Core.Repository;
 using ECommerce.Repository.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -21,7 +22,8 @@ namespace ECommerce.Repository.Implementation
                           IUserService userService,
                           IProductService productService,
                           IAccountService accountService,
-                          IOrderService orderService)
+                          IOrderService orderService,
+                          INotificationService notificationService)
         {
             _context = context;
             OffersRepository = offersRepository;
@@ -32,6 +34,7 @@ namespace ECommerce.Repository.Implementation
             ProductService = productService;
             AccountService = accountService;
            OrderService = orderService;
+            NotificationService = notificationService;
         }
 
         public IOffersService OffersRepository { get; }
@@ -43,6 +46,10 @@ namespace ECommerce.Repository.Implementation
         public IAccountService AccountService { get; }
 
         public IOrderService OrderService { get; }
+
+        public INotificationService NotificationService {get;}
+
+    
 
         public void Dispose()
         {
