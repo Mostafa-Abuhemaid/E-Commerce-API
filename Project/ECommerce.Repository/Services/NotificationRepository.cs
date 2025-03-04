@@ -13,18 +13,18 @@ namespace ECommerce.Repository.Services
         {
             try
             {
-                //var message = new Message()
-               // {
-                    //Token = deviceToken,
-                    //Notification = new Notification
-                    //{
-                        //Title = title,
-                        //Body = body
-                    //}
-                //};
+                var message = new Message()
+                {
+                    Token = deviceToken,
+                    Notification = new Notification
+                    {
+                        Title = title,
+                        Body = body
+                    }
+                };
 
-                //string response = await FirebaseMessaging.DefaultInstance.SendAsync(message);
-                //Console.WriteLine($"Successfully sent message: {response}");
+                string response = await FirebaseMessaging.DefaultInstance.SendAsync(message);
+                Console.WriteLine($"Successfully sent message: {response}");
 
                 return true;
             }
@@ -35,9 +35,30 @@ namespace ECommerce.Repository.Services
             }
         }
 
-        public Task<bool> SendNotificationToAllAsync(string title, string body)
+        public async Task<bool> SendNotificationToAllAsync(string title, string body)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var message = new Message()
+                {
+                    Topic = "allUsers",
+                    Notification = new Notification
+                    {
+                        Title = title,
+                        Body = body
+                    }
+                };
+
+                string response = await FirebaseMessaging.DefaultInstance.SendAsync(message);
+                Console.WriteLine($"Successfully sent message to all users: {response}");
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error sending notification: {ex.Message}");
+                return false;
+            }
         }
     }
 }

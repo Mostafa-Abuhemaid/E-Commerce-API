@@ -9,6 +9,7 @@ using ECommerce.Repository.Data;
 using ECommerce.Repository.Implementation;
 using ECommerce.Repository.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -45,6 +46,12 @@ builder.Services.AddScoped<INotificationService,NotificationRepository>();
 builder.Services.Configure<MailSettings>(configuration.GetSection("MailSettings"));
 builder.Services.AddTransient<IEmailService, EmailService>();
 builder.Services.AddMemoryCache();
+string path = Path.Combine(Directory.GetCurrentDirectory(), "notification-5207e-firebase-adminsdk-fbsvc-76062e5381.json");
+var credential = GoogleCredential.FromFile(path);
+var firebaseApp = FirebaseApp.Create(new AppOptions
+{
+    Credential = credential
+});
 
 builder.Services.AddAuthentication(options =>
 {
